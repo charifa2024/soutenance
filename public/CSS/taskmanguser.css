@@ -1,0 +1,129 @@
+
+.tasks-table{
+    margin-top: 10%;
+    width: 85%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+th, td {
+    padding: 12px;
+    border: 2px solid #ddd;
+    text-align: center;
+    font-size: 1.1em;
+}
+td{
+    text-align: center;
+    background-color: lightsteelblue;
+}
+th {
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+.tasks-table-header h1{
+    width: 100%;
+    color: #fff;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+
+
+.action-btn{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    background-color: #0053ab;
+    color: #fff;
+    border: none;
+    font-weight: lighter;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.action-btn:hover {
+    background-color: #00346b;
+}
+
+.state{
+    width: 100%;
+    padding: 10px;
+    background-color: darkgreen;
+    color: #fff;
+    border: none;
+    font-weight: lighter;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.details_container{
+    position: relative;
+    margin-top: 10%;
+    width: 55%;
+}
+
+.card {
+    position: relative;
+    background-color: lightsteelblue;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding:  20px 40px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 30px;
+    text-align: center;
+
+}
+
+.card-details {
+    font-size: 1em;
+    color: #555;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-details p {
+    color: black;
+    margin-bottom: 10px;
+}
+.card-details label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+.card-details label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+.card-details ul {
+    list-style-type: none;
+    padding-left: 20px;
+    color: #333333;
+}
+.close-btn{
+    position: relative;
+    margin-top: 30px;
+    text-align: center;
+}
+.close-btn a{
+    background-color: #0053ab;
+    color: white;
+    font-size: larger;
+    padding:  10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn a:hover {
+    background-color: #00346b;
+}
+
