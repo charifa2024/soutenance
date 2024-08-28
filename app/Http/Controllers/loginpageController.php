@@ -10,4 +10,5 @@ class loginpageController extends Controller
     public function index(){
         return view('loginpage.index');
     }
+    
 }

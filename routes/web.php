@@ -22,7 +22,9 @@ Route::get('/', function () {
 });
 
 Route::get('/homepage', [homepageController::class, 'index'])->name('homepage.index');
+Route::post('/homepage', [homepageController::class, 'store'])->name('homepage.store');
 Route::get('/loginpage', [loginpageController::class, 'index'])->name('loginpage.index');
+
 Route::get('/profilepage', [profilepageController::class, 'index'])->name('profilepage.index');
 
 

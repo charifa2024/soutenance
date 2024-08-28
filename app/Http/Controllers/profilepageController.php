@@ -19,6 +19,7 @@ class profilepageController extends Controller
         $password=request()->password;
         $confirm_pwd=request()->confirm_pwd;
        // @dd($email,$phone_number,$password,$confirm_pwd);
-       return view('profilepage.index');
+       return to_route('profilepage.index');
     }
+
 }

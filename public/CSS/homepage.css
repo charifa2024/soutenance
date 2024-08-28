@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #905ea2, #2e9bc0);
+    background: linear-gradient(135deg, #5644bd, #1ba13e);
 }
 .header{
     position: relative;

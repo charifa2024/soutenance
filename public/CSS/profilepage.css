@@ -1,9 +1,9 @@
 
 .container {
     position: relative;
-    width: 50%;
-    max-height: min-content;
-    margin-top: 10%;
+    width:60%;
+    max-height: fit-content;
+    margin-top: 12%;
     padding: 30px;
     background-color: lightsteelblue;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
@@ -118,9 +118,12 @@ h1 {
 .container input[type="number"],
 input[type="email"],
 input[type="password"]{
-    width: 100%;
+    width: 95%;
     padding: 8px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 4px;
     background: transparent;
     font-size: 1em;
