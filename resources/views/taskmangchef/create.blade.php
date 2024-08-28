@@ -1,6 +1,6 @@
 @extends('layouts.chefnav')
 @section('text_css')
-<title>task management</title>
+<title>task management task creation</title>
     <link rel="stylesheet" href="{{asset('css/taskmangchef.css')}}">
 </head>
 <body>

@@ -24,6 +24,11 @@ Route::get('/', function () {
 Route::get('/homepage', [homepageController::class, 'index'])->name('homepage.index');
 Route::get('/loginpage', [loginpageController::class, 'index'])->name('loginpage.index');
 Route::get('/profilepage', [profilepageController::class, 'index'])->name('profilepage.index');
+
+
+Route::get('/profilepage/edit', [profilepageController::class, 'edit'])->name('profilepage.edit');
+Route::put('/profilepage', [profilepageController::class, 'update'])->name('profilepage.update');
+
 Route::get('/taskmanguser', [taskmanguserController::class, 'index'])->name('taskmanguser.index');
 Route::get('/taskmangchef', [taskmangchefController::class, 'index'])->name('taskmangchef.index');
 
@@ -69,3 +74,5 @@ route::delete('/chef_dashboard/{task}', [chef_dashboardController::class,'destro
 route::get('/chef_breakrequest', [chef_breakrequestController::class, 'create'])->name('chef_breakrequest.create');
 route::post('/chef_breakrequest', [chef_breakrequestController::class,'store'])->name('chef_breakrequest.store');
 Route::get('/chef_profile', [chef_profileController::class, 'index'])->name('chef_profile.index');
+Route::get('/chef_profile/edit', [chef_profileController::class, 'edit'])->name('chef_profile.edit');
+Route::put('/chef_profile', [chef_profileController::class, 'update'])->name('chef_profile.update');

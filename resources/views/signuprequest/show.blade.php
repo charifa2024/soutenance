@@ -1,6 +1,6 @@
 @extends('layouts.adminnav')
 @section('text_css')
-<title>sign up requests</title>
+<title>sign up requests details</title>
 <link rel="stylesheet" href="{{ asset('css/signuprequest.css') }}">
 </head>
 <body>

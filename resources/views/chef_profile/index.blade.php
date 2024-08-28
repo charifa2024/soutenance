@@ -31,93 +31,15 @@
             </div>
             <div class="profile-info-item">
                 <label for="role">Rôle :</label>
-                <span id="role">Chef du group</span>
+                <span id="role">utilisateur normal</span>
             </div>
         </div>
-        <form  method="POST"  action="#"></form>
-        <div class="edit_profile">
-            <h2>Modifier le profil</h2>
-            <div class="edit_profile_item">
-                <label for="pwd">Modifier le mot de passe :</label>
-                <input type="password" id="pwdedit" name="pwd" placeholder="Entrez votre mot de passe">
-                <button type="submit" class="btnEdit" id="btnpwd" >Enregistré</button>
-            </div>
-            <div class="edit_profile_item">
-                <label for="email">Modifier l'email :</label>
-                <input type="email" id="emailedit" name="email" placeholder="Entrez votre email">
-                <button type="submit" class="btnEdit" id="btnemail" >Enregistré</button>
-            </div>
-            <div class="edit_profile_item">
-                <label for="phone">Modifier le téléphone :</label>
-                <input type="tel" id="phoneedit" name="phone" placeholder="Entrez votre téléphone">
-                <button type="submit" class="btnEdit" id="btnphone" >Enregistré</button>
-            </div>
-        </div>
-</form>
-        <div class="popup">
-            <div class="popup-content">
-            <img src="{{asset('images/404-tick.png')}}">
-            <h2>Modification effectuée avec succès</h2>
-            </div>
 
+
+        <div class="edit_button"><button class="edit-btn" ><a href="{{route('chef_profile.edit')}}">Modifier</a></button></div>
         </div>
-        <div class="error">
-            <div class="error-content">
-            <img src="{{asset('images/error.jpg')}}">
-            <h2>Veuillez remplir le champs d'abord </h2>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
-<script>
-    pwdinput = document.getElementById("pwdedit");
-    emailinput = document.getElementById("emailedit");
-    phoneinput = document.getElementById("phoneedit");
-    email=document.getElementById("email");
-    phone=document.getElementById("phone");
-
-    btnpwd=document.getElementById("btnpwd");
-    btnemail=document.getElementById("btnemail");
-    btnphone=document.getElementById("btnphone");
-
-    popup=document.querySelector(".popup");
-    error=document.querySelector(".error");
-    btnpwd.addEventListener("click",function(){
-        if(pwdinput.value!=""){
-            popup.style.display="flex";
-        }
-        else{
-            error.style.display="flex";
-        }
-    });
-    btnemail.addEventListener("click",function(){
-        if(emailinput.value!=""){
-            email.innerHTML=emailinput.value;
-            popup.style.display="flex";
-        }
-        else{
-            error.style.display="flex";
-        }
-    });
-    btnphone.addEventListener("click",function(){
-        if(phoneinput.value!=""){
-            phone.innerHTML=phoneinput.value;
-            popup.style.display="flex";
-        }
-        else{
-            error.style.display="flex";
-        }
-    });
-    popup.addEventListener("click",function(){
-        popup.style.display="none";
-    });
-    error.addEventListener("click",function(){
-        error.style.display="none";
-    });
-    
-</script>
 </body>
 </html>
 @endsection

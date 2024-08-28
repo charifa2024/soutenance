@@ -1,6 +1,6 @@
 @extends('layouts.adminnav')
 @section('text_css')
-<title>contact form messages</title>
+<title>contact form messages details</title>
 <link rel="stylesheet" href="{{ asset('css/contactmssg.css') }}">
 </head>
 <body>

@@ -1,6 +1,6 @@
 @extends('layouts.adminnav')
 @section('text_css')
-<title>users profiles</title>
+<title>users profiles details</title>
 <link rel="stylesheet" href="{{ asset('css/usersprofiles.css') }}">
 </head>
 <body>

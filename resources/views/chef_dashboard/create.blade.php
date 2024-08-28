@@ -1,6 +1,6 @@
 @extends('layouts.chefnav')
 @section('text_css')
-<title>Dashboard</title>
+<title>Dashboard task creation</title>
 <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
 </head>
 <body>

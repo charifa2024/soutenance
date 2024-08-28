@@ -1,6 +1,6 @@
 @extends('layouts.adminnav')
 @section('text_css')
-<title>Break Request management</title>
+<title>Break Request management details</title>
 <link rel="stylesheet" href="{{ asset('css/breakrequestadmin.css') }}">
 </head>
 <body>

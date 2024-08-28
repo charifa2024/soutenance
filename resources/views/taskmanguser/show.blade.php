@@ -1,6 +1,6 @@
 @extends('layouts.nav')
 @section('text_css')
-<title>task management show</title>
+<title>task management task details</title>
     <link rel="stylesheet" href="{{asset('css/taskmanguser.css')}}">
 </head>
 <body>
