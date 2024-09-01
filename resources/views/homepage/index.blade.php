@@ -55,8 +55,6 @@
     <h2 class="contact-title">Contactez-nous</h2>
     <form action="{{route('homepage.store')}}" method="post" class="form">
         @csrf
-        <label for="name" class="form-label">Nom complet :</label>
-        <input type="text" id="fullname" name="fullname" required class="form-input">
         <label for="email" class="form-label">Email :</label>
         <input type="email" id="email" name="email" required class="form-input">
         <label for="subject" class="form-label">Sujet :</label>

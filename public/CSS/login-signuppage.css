@@ -194,21 +194,17 @@ body{
 
 }
 
-.form-box.register{
-    display: none;
-}
+
 
 .confirmation-card {
     max-width: 500px;
-    margin-top: -150px;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     background: linear-gradient(200deg,#2e9bc0, #905ea2);
     text-align: center;
     font-family: Arial, sans-serif;
-    display: none;
-    width: 90%;
+    width: 100%;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -231,30 +227,5 @@ body{
 
 .confirmation-card p:last-child {
     margin-bottom: 0;
-}
-
-
-.homepagebtn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #162938;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    position: relative;
-    display: none;
-    transition: background-color 0.3s ease;
-}
-
-.homepagebtn:hover {
-    background-color: #0f1c25;
-}
-.homepagebtn {
-    text-align: center;
-}
-.homepagebtn a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
 }
 

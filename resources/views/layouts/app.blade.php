@@ -45,6 +45,7 @@ a{
 }
 footer{
     position: relative;
+    bottom: 0;
 }
     </style>
 @yield('content')

@@ -17,7 +17,6 @@
     <p><label>Rôle :</label>{{$signuprequest['role']}}</p>
     <p><label>Departement :</label>{{$signuprequest['department']}}</p>
     <p><label>Poste :</label>{{$signuprequest['post']}}</p>
-    <p><label>Nom du Manager :</label>{{$signuprequest['manager_name']}}</p>
     </div>
     
     <div class="button-container">

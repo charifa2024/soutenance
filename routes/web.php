@@ -23,7 +23,11 @@ Route::get('/', function () {
 
 Route::get('/homepage', [homepageController::class, 'index'])->name('homepage.index');
 Route::post('/homepage', [homepageController::class, 'store'])->name('homepage.store');
-Route::get('/loginpage', [loginpageController::class, 'index'])->name('loginpage.index');
+Route::get('/loginpage', [loginpageController::class, 'login'])->name('loginpage.login');
+Route::get('/signup', [loginpageController::class, 'signup'])->name('loginpage.signup');
+Route::get('/show', [loginpageController::class, 'show'])->name('loginpage.show');
+
+Route::POST('/loginpage', [loginpageController::class, 'store'])->name('loginpage.store');
 
 Route::get('/profilepage', [profilepageController::class, 'index'])->name('profilepage.index');
 
