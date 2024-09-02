@@ -52,11 +52,15 @@ class taskmanguserController extends Controller
             'notes'=>'Lorem ipsum dolor sit amet',
             'responsable'=>'responsable',
             'for'=>[
-                '1'=>'responsable 1',
-                '2'=>'responsable 2',
-                '3'=>'responsable 3',
-            ],
-
+                [
+                    'id'=>1,
+                    'name'=>'nom',
+                ],
+                [
+                    'id'=>2,
+                    'name'=>'nom',
+                ]
+                ]
         ];
         return view('taskmanguser.show' , ['task' => $singletask]);
     }

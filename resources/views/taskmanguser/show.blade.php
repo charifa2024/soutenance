@@ -18,9 +18,9 @@
     <p><label>Responsable :</label> {{$task['responsable']}}</p>
     <p><label>Affecté à :</label>
     <ul>
-        <li>{{$task['for'][1]}}</li>
-        <li>{{$task['for'][2]}}</li>
-        <li>{{$task['for'][3]}}</li>
+        @foreach($task['for'] as $user)
+        <li>{{$user['name']}}</li>
+        @endforeach
     </ul>
     </p>
     <p><label>Notes :</label> {{$task['notes']}}</p>

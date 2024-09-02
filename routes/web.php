@@ -44,9 +44,9 @@ Route::get('/taskmanguser/{task}', [taskmanguserController::class,'show'])->name
 Route::get('/taskmangchef/{task}', [taskmangchefController::class,'show'])->name('taskmangchef.show');
 Route::get('/taskmangchef/{task}/edit', [taskmangchefController::class, 'edit'])->name('taskmangchef.edit');
 route::put('/taskmangchef/{task}', [taskmangchefController::class, 'update'])->name('taskmangchef.update');
-
+Route::get('/breakrequest', [breakrequestController::class, 'index'])->name('breakrequest.index');
 route::post('/breakrequest', [breakrequestController::class, 'store'])->name('breakrequest.store');
-Route::get('/breakrequest', [breakrequestController::class, 'create'])->name('breakrequest.create');
+Route::get('/breakrequest/create', [breakrequestController::class, 'create'])->name('breakrequest.create');
 route::get('/breakrequestadmin/{breakrequestadmin}', [breakrequestadminController::class, 'show'])->name('breakrequestadmin.show');
 Route::get('/breakrequestadmin', [breakrequestadminController::class, 'index'])->name('breakrequestadmin.index');
 
@@ -79,8 +79,8 @@ route::post('/chef_dashboard', [chef_dashboardController::class,'store'])->name(
 Route::get('/chef_dashboard/{task}/edit', [chef_dashboardController::class, 'edit'])->name('chef_dashboard.edit');
 route::put('/chef_dashboard/{task}', [chef_dashboardController::class, 'update'])->name('chef_dashboard.update');
 route::delete('/chef_dashboard/{task}', [chef_dashboardController::class,'destroy'])->name('chef_dashboard.destroy');
-
-route::get('/chef_breakrequest', [chef_breakrequestController::class, 'create'])->name('chef_breakrequest.create');
+route::get('/chef_breakrequest', [chef_breakrequestController::class, 'index'])->name('chef_breakrequest.index');
+route::get('/chef_breakrequest/create', [chef_breakrequestController::class, 'create'])->name('chef_breakrequest.create');
 route::post('/chef_breakrequest', [chef_breakrequestController::class,'store'])->name('chef_breakrequest.store');
 Route::get('/chef_profile', [chef_profileController::class, 'index'])->name('chef_profile.index');
 Route::get('/chef_profile/edit', [chef_profileController::class, 'edit'])->name('chef_profile.edit');

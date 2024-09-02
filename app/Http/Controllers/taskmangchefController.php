@@ -47,16 +47,28 @@ class taskmangchefController extends Controller
         'titre'=>'PROJET DU STAGE',
         'date'=>'20/07/2024',
         'date_depot'=>'20/08/2024',
-        'statut'=>'En Cours',
+        'status'=>'En Cours',
         'description'=>'Lorem ipsum dolor sit amet',
         'notes'=>'Lorem ipsum dolor sit amet',
         'responsable'=>'responsable',
         'for'=>[
-            '1'=>'responsable 1',
-            '2'=>'responsable 2',
-            '3'=>'responsable 3',
-        ],
-
+            [
+                'id'=>1,
+                'name'=>'john doe',
+                'status'=>'En Cours'
+            ],
+            [
+                'id'=>2,
+                'name'=>'mohammed ali',
+                'status'=>'terminé'
+            ],
+            [
+                'id'=>3,
+                'name'=>'maria ben',
+                'status'=>'terminé'
+            ]
+    
+        ]
     ];
     return view('taskmangchef.show' , ['task' => $singletask]);
    }

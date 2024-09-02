@@ -13,13 +13,17 @@
     <p><label>Date :</label>{{$task['date']}}</p>
     <p><label>Date d'échéance :</label> {{$task['date_depot']}}</p>
     <p><label>Titre :</label> {{$task['titre']}}</p>
-    <p><label>Statut :</label> {{$task['statut']}}</p>
+    <p><label>Status :</label> {{$task['status']}}</p>
     <p><label>Description :</label> {{$task['description']}}</p>
     <p><label>Affecté à :</label>
     <ul>
-        <li>{{$task['for'][1]}}</li>
-        <li>{{$task['for'][2]}}</li>
-        <li>{{$task['for'][3]}}</li>
+    @foreach ($task['for'] as $for)
+    <li><strong>{{$for['name']}}</strong>
+    @if ($task['status'] == 'En Cours')
+    <p>status : <span class="status-en-cours">{{$for['status']}}</span></p>
+    @endif
+    </li>
+    @endforeach
     </ul>
     </p>
     <p><label>Notes :</label> {{$task['notes']}}</p>

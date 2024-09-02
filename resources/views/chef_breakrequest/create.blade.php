@@ -23,6 +23,7 @@
             <div>
                 <input type="submit" value="Envoyer">
             </div>
+            <div class="close-btn"><a href="{{route('breakrequest.index')}}" >Fermer</a></div>
         </form>
     </div>
 </body>
