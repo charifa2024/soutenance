@@ -42,6 +42,9 @@ Route::get('/taskmangchef/create', [taskmangchefController::class, 'create'])->n
 Route::post('/taskmangchef', [taskmangchefController::class, 'store'])->name('taskmangchef.store');
 Route::get('/taskmanguser/{task}', [taskmanguserController::class,'show'])->name('taskmanguser.show');
 Route::get('/taskmangchef/{task}', [taskmangchefController::class,'show'])->name('taskmangchef.show');
+Route::get('/taskmangchef/{task}/edit', [taskmangchefController::class, 'edit'])->name('taskmangchef.edit');
+route::put('/taskmangchef/{task}', [taskmangchefController::class, 'update'])->name('taskmangchef.update');
+
 route::post('/breakrequest', [breakrequestController::class, 'store'])->name('breakrequest.store');
 Route::get('/breakrequest', [breakrequestController::class, 'create'])->name('breakrequest.create');
 route::get('/breakrequestadmin/{breakrequestadmin}', [breakrequestadminController::class, 'show'])->name('breakrequestadmin.show');

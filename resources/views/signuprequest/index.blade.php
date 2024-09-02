@@ -8,7 +8,11 @@
 <div class="signuprequest-table">
     <div class="signuprequest-table-container">
         <div class="signuprequest-table-header">
+            <form action="#" method="get" class="search-form">
             <h1> Demandes d'inscription des utilisateurs</h1>
+                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
+                <button type="submit" class="search-btn">Rechercher</button>
+            </form>
         </div>
         <div class="signuprequest-table-body">
             <table>

@@ -7,7 +7,11 @@
 <div class="breakrequest-table">
     <div class="breakrequest-table-container">
         <div class="breakrequest-table-header">
+            <form action="#" method="get" class="search-form">
             <h1>Demandes de Congés</h1>
+                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
+                <button type="submit" class="search-btn">Rechercher</button>
+            </form>
         </div>
         <div class="breakrequest-table-body">
             <table>

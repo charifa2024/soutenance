@@ -4,7 +4,11 @@
     <link rel="stylesheet" href="{{asset('css/taskmangchef.css')}}">
     <div class="tasks_container">
     <div class="tasks-table-header">
-            <h1>Tâches Assignées au group</h1>
+      <form action="#" method="get" class="search-form">
+      <h1>Tâches Assignées au group</h1>
+                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
+                <button type="submit" class="search-btn">Rechercher</button>
+            </form>
     </div>
 
 
@@ -28,9 +32,10 @@
       <td>{{$task['titre']}}</td>
       <td>{{$task['date_depot']}}</td>
       <td>{{$task['status']}}</td>
-      <td>
-        <a href="{{route('taskmangchef.show' , $task['id'])}}" class="action-btn">Voir</a>
-      </td>
+      <td><div class="actions">
+      <button class="edit-btn" ><a href="{{route('taskmangchef.edit' , $task['id'])}}">Modifier</a></button>
+      <button class="view-btn"> <a href="{{route('taskmangchef.show' , $task['id'])}}">Voir</a></button>
+      </div>
     </tr>
     @endforeach
   </tbody>

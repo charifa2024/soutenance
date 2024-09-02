@@ -62,11 +62,36 @@ class taskmangchefController extends Controller
    }
 
    public function create(){
-    return view('taskmangchef.create');
+    $employees = [
+        [
+            'id'=>1,
+            'name'=>'john doe',
+        ],
+        [
+            'id'=>2,
+            'name'=>'mohammed ali',
+        ],
+        [
+            'id'=>3,
+            'name'=>'maria ben',
+        ]
+
+    ];
+    return view('taskmangchef.create', ['employees' => $employees]);
    }
 
    public function store(){
     $data= request()->all();
+    @dd($data);
+    return to_route('taskmangchef.index');
+   }
+
+   public function edit(){
+    return view('taskmangchef.edit');
+   }
+   public function update(){
+    $data= request()->all();
+    //@dd($data);
     return to_route('taskmangchef.index');
    }
 }

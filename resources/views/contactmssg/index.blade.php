@@ -8,7 +8,11 @@
 <div class="contactmssg-table">
     <div class="contactmssg-table-container">
         <div class="contactmssg-table-header">
-            <h1>Gestion des Messages de Contact</h1>
+        <form action="#" method="get" class="search-form">
+        <h1>Gestion des Messages de Contact</h1>
+                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
+                <button type="submit" class="search-btn">Rechercher</button>
+            </form>
         </div>
         <div class="contactmssg-table-body">
             <table>
