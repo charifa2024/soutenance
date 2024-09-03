@@ -59,6 +59,7 @@ class usersprofilesController extends Controller
                 'role' => 'admin',
                 'department' => 'Développement',
                 'post' => 'Développeur',
+                'status' => 'actif',
                'manager_name' => '<NAME>'
             ]
             ;

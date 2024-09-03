@@ -17,6 +17,7 @@
     <p><label>Rôle :</label>{{$usersprofile['role']}}</p>
     <p><label>Departement :</label>{{$usersprofile['department']}}</p>
     <p><label>Poste :</label>{{$usersprofile['post']}}</p>
+    <p><label>status :</label>{{$usersprofile['status']}}</p>
     <p><label>Nom du Manager :</label>{{$usersprofile['manager_name']}}</p>
     </div>
     
