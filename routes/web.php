@@ -27,7 +27,7 @@ Route::get('/loginpage', [loginpageController::class, 'login'])->name('loginpage
 Route::get('/signup', [loginpageController::class, 'signup'])->name('loginpage.signup');
 Route::get('/show', [loginpageController::class, 'show'])->name('loginpage.show');
 
-Route::POST('/loginpage', [loginpageController::class, 'store'])->name('loginpage.store');
+Route::POST('/signup', [loginpageController::class, 'store'])->name('signup.store');
 
 Route::get('/profilepage', [profilepageController::class, 'index'])->name('profilepage.index');
 
@@ -52,11 +52,11 @@ Route::get('/breakrequestadmin', [breakrequestadminController::class, 'index'])-
 
 Route::get('/contactmssg', [contactmssgController::class, 'index'])->name('contactmssg.index');
 Route::get('/contactmssg/create', [contactmssgController::class, 'create'])->name('contactmssg.create');
-route::get('/contactmssg/{contactmssg}', [contactmssgController::class, 'show'])->name('contactmssg.show');
+route::get('/contactmssg/{contactmssgId}', [contactmssgController::class, 'show'])->name('contactmssg.show');
 route::post('/contactmssg', [contactmssgController::class, 'store'])->name('contactmssg.store');
 
 Route::get('/signuprequest', [signuprequestController::class, 'index'])->name('signuprequest.index');
-route::get('/signuprequest/{signuprequest}', [signuprequestController::class, 'show'])->name('signuprequest.show');
+route::get('/signuprequest/{signuprequestId}', [signuprequestController::class, 'show'])->name('signuprequest.show');
 
 Route::get('/usersprofiles', [usersprofilesController::class, 'index'])->name('usersprofiles.index');
 route::get('/usersprofiles/{usersprofile}', [usersprofilesController::class,'show'])->name('usersprofiles.show');

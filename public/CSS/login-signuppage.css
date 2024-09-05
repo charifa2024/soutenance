@@ -229,3 +229,16 @@ body{
     margin-bottom: 0;
 }
 
+.alert-danger{
+    color: red;
+    font-size: 1.2em;
+    margin-top: 50px;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 4px;
+}
+.alert-danger ul{
+    list-style-type: none;
+    padding: 0;
+}

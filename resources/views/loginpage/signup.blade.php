@@ -5,43 +5,53 @@
 </head>
 <body>
 </header>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="box" style="margin-top: 5%;">
 <div class="wrapper">
     <div class="form-box register">
         <h2>Créez un compte</h2>
-        <form action="{{route('loginpage.store')}}" method="POST">
+        <form action="#" method="POST">
         @csrf
         <div class="input-group">
         <div class="input-box">
             <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-        <input type="text" required>
+        <input type="text" name="firstname" required>
         <label>Prénom</label>
         </div>
         <div class="input-box">
-        <input type="text" required>
+        <input type="text" name="lastname" required>
         <label>Nom de famille</label>
         </div>
         </div>
 
             <div class="input-box">
                     <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                    <input type="email" name="user-email" required>
+                    <input type="email" name="user_email" required>
                     <label>Email</label>
             </div>
             <div class="input-group">
                 <div class="input-box">
                 <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                <input type="password" name="user-pwd" required>
+                <input type="password" name="password" required>
                 <label>Mot de passe</label>
                 </div>
                 <div class="input-box">
-                <input type="password" name="user-pwd" required>
+                <input type="password" name="password_confirmation" required>
                 <label>Confirmez le mot de passe</label>
                 </div>
             </div>
             <div class="input-box">
                 <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
-                <input type="tel" name="user-tel" required>
+                <input type="tel" name="phoneNumber" required>
                 <label>Téléphone</label>
             </div>
             <div class="input-group">
@@ -51,7 +61,7 @@
                 <label>Poste</label>
                 </div>
                 <div class="input-box">
-                <input type="text" name="departement" required>
+                <input type="text" name="department" required>
                 <label>Département</label>
                 </div>
 

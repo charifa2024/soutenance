@@ -28,9 +28,9 @@
         <tbody>
             @foreach ($signuprequests as $signuprequest)
     <tr>
-      <td>{{$signuprequest['id']}}</td>
-      <td>{{$signuprequest['date']}}</td>
-      <td>{{$signuprequest['nom']}}</td>
+      <td>{{$signuprequest->id}}</td>
+      <td>{{$signuprequest->created_at}}</td>
+      <td>{{$signuprequest->Firstname}} {{$signuprequest->Lastname}}</td>
       <td><a href="{{route('signuprequest.show' , $signuprequest['id'])}}" class="action-btn">Vérifier</a></td>
       <td class="action-buttons">
         <div><input type="button" value="Accepter" class="action-btn" style=" background-color : green;"></div>

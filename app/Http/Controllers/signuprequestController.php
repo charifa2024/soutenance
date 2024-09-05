@@ -3,50 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\signup_request;
 
 class signuprequestController extends Controller
 {
     //
     public function index(){
-        $allsignuprequest =[
-            [
-                'id'=>1,
-                'date'=>'20/07/2024',
-                'nom'=>'Moussa',
-            ],
-            [
-                'id'=>2,
-                'date'=>'20/07/2024',
-                'nom'=>'Moussa',
-            ],
-            [
-                'id'=>3,
-                'date'=>'20/07/2024',
-                'nom'=>'Moussa',
-            ],
-            [
-                'id'=>4,
-                'date'=>'20/07/2024',
-                'nom'=>'Moussa',
-            ],
-        ];
-
+        $allsignuprequest=signup_request::all();
         return view('signuprequest.index' , ['signuprequests'=>$allsignuprequest]);
     }
 
-    public function show($id)
+    public function show(signup_request $signuprequestId)
     {
-        $signuprequest=            [
-            'id'=>1,
-            'date'=>'20/07/2024',
-            'nom'=>'Moussa',
-            'email'=>'example@gmail.com',
-            'phone_number'=>123456789,
-            'role'=>'admin',
-            'department'=>'IT',
-            'post'=>'administrateur',
-            'manager_name'=>'<NAME>',
-        ];
-        return view('signuprequest.show' ,  ['signuprequest' => $signuprequest]);
+        return view('signuprequest.show', ['signuprequest'=>$signuprequestId]);
     }
 }

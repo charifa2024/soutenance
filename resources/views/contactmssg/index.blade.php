@@ -26,13 +26,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($contactmssgs as $contactmssg)
+            
+            @foreach ($contact_messages_fromDB as $contactmssg)
     <tr>
-      <td>{{$contactmssg['id']}}</td>
-      <td>{{$contactmssg['date']}}</td>
-      <td>{{$contactmssg['Email']}}</td>
-      <td>{{$contactmssg['subject']}}</td>
-      <td><a href="{{route('contactmssg.show' , $contactmssg['id'])}}" class="action-btn">Lire</a></td>
+      <td>{{$contactmssg->id}}</td>
+      <td>{{$contactmssg->created_at}}</td>
+      <td>{{$contactmssg->email}}</td>
+      <td>{{$contactmssg->subject}}</td>
+      <td><a href="{{route('contactmssg.show' , $contactmssg->id)}}" class="action-btn">Lire</a></td>
     </tr>
     @endforeach
         </tbody>

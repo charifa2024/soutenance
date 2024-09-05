@@ -10,13 +10,13 @@
     Vérifier les Informations   
     </div>
     <div class="card-details">
-    <p><label>Date :</label>{{$signuprequest['date']}}</p>
-    <p><label>Nom Complet :</label>{{$signuprequest['nom']}}</p>
-    <p><label>Email :</label>{{$signuprequest['email']}}</p>
-    <p><label>Numéro de Téléphone :</label>{{$signuprequest['phone_number']}}</p>
-    <p><label>Rôle :</label>{{$signuprequest['role']}}</p>
-    <p><label>Departement :</label>{{$signuprequest['department']}}</p>
-    <p><label>Poste :</label>{{$signuprequest['post']}}</p>
+    <p><label>Date :</label>{{$signuprequest->created_at}}</p>
+    <p><label>Nom Complet :</label>{{$signuprequest->Firstname}} {{$signuprequest->Lastname}}</p>
+    <p><label>Email :</label>{{$signuprequest->email}}</p>
+    <p><label>Numéro de Téléphone :</label>{{$signuprequest->phoneNumber}}</p>
+    <p><label>Rôle :</label>{{$signuprequest->role}}</p>
+    <p><label>Departement :</label>{{$signuprequest->department}}</p>
+    <p><label>Poste :</label>{{$signuprequest->post}}</p>
     </div>
     
     <div class="button-container">
