@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\signup_request;
+use App\Models\manager_department_name;
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -14,7 +16,8 @@ class loginpageController extends Controller
         return view('loginpage.login');
     }
     public function signup(){
-        return view('loginpage.signup');
+        $manager_names= manager_department_name::all();
+        return view('loginpage.signup' , ['manager_names'=>$manager_names]);
     }
     
     public function show(){
@@ -38,19 +41,8 @@ class loginpageController extends Controller
         $phoneNumber=request()->phoneNumber;
         $post=request()->post;
         $department=request()->department;
-        $employee=request()->employee;
-        $manager=request()->manager;
-        $terms=request()->terms;
-        if($employee="on"){
-            $role="employee";
-        }
-        elseif($manager="on"){
-            $role="manager";
-        }
-        else{
-            $role="employee";
-        };
-      
+        $role=request()->role;
+        $terms=request()->terms;  
         //@dd($firstname,$lastname,$email,$password,$phoneNumber,$post,$department,$role);
         $signup_request = new signup_request;
         $signup_request->firstname = $firstname;
@@ -61,6 +53,7 @@ class loginpageController extends Controller
         $signup_request->post = $post;
         $signup_request->department = $department;
         $signup_request->role = $role;
+        //dd($signup_request);
         $signup_request->save();
         return to_route('loginpage.show');
     }

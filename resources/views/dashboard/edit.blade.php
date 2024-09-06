@@ -11,11 +11,11 @@
         @csrf
         @method('PUT')
         <label for="titre">Titre de la Tâche :</label>
-        <input type="text" id="titre" name="titre" required>
+        <input type="text" id="titre" name="titre" placeholder="titre" required>
 
 
         <label for="description">Description :</label>
-        <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="description" required></textarea>
 
         <input type="submit" value="Modifier la Tâche">
         <div class="close-btn"><a href="{{route('dashboard.index')}}" >Fermer</a></div>

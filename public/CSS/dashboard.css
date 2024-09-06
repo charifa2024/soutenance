@@ -282,6 +282,7 @@ input[type="submit"]:hover {
     border: 1px solid #000000;
     border-radius: 4px;
     background: transparent;
+    font-size: 1.5em;
 }
 a {
     text-decoration: none;

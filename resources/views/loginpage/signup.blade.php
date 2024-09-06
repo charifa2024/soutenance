@@ -19,7 +19,7 @@
 <div class="wrapper">
     <div class="form-box register">
         <h2>Créez un compte</h2>
-        <form action="#" method="POST">
+        <form action="{{route('signup.store')}}" method="POST">
         @csrf
         <div class="input-group">
         <div class="input-box">
@@ -60,17 +60,22 @@
                 <input type="text" name="post" required>
                 <label>Poste</label>
                 </div>
-                <div class="input-box">
-                <input type="text" name="department" required>
-                <label>Département</label>
+                <div class="department">
+                    <label for="department">Département :</label>
+                    <select name="department" id="department">
+                        @foreach ($manager_names as $manager_name)
+                        <option value="{{$manager_name->department_name}}">{{$manager_name->department_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
             </div>
             <div class="check">
-                <input type="checkbox" name="manager" id="manager" >
-                <label for="manager">Je suis un gestionnaire</label>
-                <input type="checkbox" name="employee" id="employee" >
-                <label for="employee">Je suis un employé</label>
+                <label for="role">role :</label>
+                <select name="role" id="role" >
+                    <option value="employee">Employé</option>
+                    <option value="manager">Manager</option>
+                </select>
             </div>
             <div class="check">
                 <input type="checkbox" name="terms" id="terms" required>

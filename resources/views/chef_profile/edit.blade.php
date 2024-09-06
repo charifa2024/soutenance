@@ -10,7 +10,7 @@
         @csrf
         @method('PUT')
         <label for="phone_number">Numéro du Téléphone :</label>
-        <input type="number" id="phone_number" name="phone_number" required >
+        <input type="number" id="phone_number" name="phone_number" placeholder="numéro de téléphone" required >
 
         <input type="submit" value="Modifier" id="number_btn">
     </form>
@@ -18,7 +18,7 @@
         @csrf
         @method('PUT')
         <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="email" required>
 
         <input type="submit" value="Modifier" id="email.btn"  >
     </form>
@@ -26,9 +26,9 @@
         @csrf
         @method('PUT')
         <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required >
+        <input type="password" id="password" name="password" placeholder="mot de passe" required >
         <label for="confirm_pwd">Confirmez le Mot de passe</label>
-        <input type="password" id="confirm_pwd" name="confirm_pwd" required >
+        <input type="password" id="confirm_pwd" name="confirm_pwd" placeholder="confirmez le mot de passe" required >
 
         <input type="submit" value="Modifier" id="password.btn" >
     </form>

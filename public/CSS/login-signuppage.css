@@ -242,3 +242,27 @@ body{
     list-style-type: none;
     padding: 0;
 }
+.department , .check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.department select , .check select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+.department select option , .check select option {
+    background-color: #fff;
+    color: #333;
+}
+.department label , .check label {
+    margin-right: 5%;
+    font-size: 1.2em;
+    color: #162938;
+    font-weight: 500;
+}

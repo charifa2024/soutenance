@@ -56,9 +56,15 @@ route::get('/contactmssg/{contactmssgId}', [contactmssgController::class, 'show'
 route::post('/contactmssg', [contactmssgController::class, 'store'])->name('contactmssg.store');
 
 Route::get('/signuprequest', [signuprequestController::class, 'index'])->name('signuprequest.index');
-route::get('/signuprequest/{signuprequestId}', [signuprequestController::class, 'show'])->name('signuprequest.show');
+route::get('/signuprequest/{signuprequestId}', [signuprequestController::class,'show'])->name('signuprequest.show');
+Route::delete('/signuprequest/{signuprequestId}', [signuprequestController::class,'refuse'])->name('signuprequest.refuse');
+Route::post('/signuprequest/{signuprequestId}', [signuprequestController::class,'accept'])->name('signuprequest.accept');
 
 Route::get('/usersprofiles', [usersprofilesController::class, 'index'])->name('usersprofiles.index');
+route::get('/usersprofiles/create', [usersprofilesController::class, 'create'])->name('usersprofiles.create');
+route::get('/usersprofiles/{usersprofile}/edit', [usersprofilesController::class, 'edit'])->name('usersprofiles.edit');
+route::put('/usersprofiles/{usersprofile}', [usersprofilesController::class, 'update'])->name('usersprofiles.update');
+route::post('/usersprofiles', [usersprofilesController::class, 'store'])->name('usersprofiles.store');
 route::get('/usersprofiles/{usersprofile}', [usersprofilesController::class,'show'])->name('usersprofiles.show');
 
 Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard.index');

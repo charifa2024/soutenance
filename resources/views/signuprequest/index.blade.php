@@ -18,7 +18,6 @@
             <table>
             <thead>
             <tr>
-                <th>#</th>
                 <th>Date</th>
                 <th>Nom complet</th>
                 <th>Vérifier les informations</th>
@@ -28,13 +27,22 @@
         <tbody>
             @foreach ($signuprequests as $signuprequest)
     <tr>
-      <td>{{$signuprequest->id}}</td>
       <td>{{$signuprequest->created_at}}</td>
       <td>{{$signuprequest->Firstname}} {{$signuprequest->Lastname}}</td>
-      <td><a href="{{route('signuprequest.show' , $signuprequest['id'])}}" class="action-btn">Vérifier</a></td>
+      <td><a href="{{route('signuprequest.show' ,$signuprequest->id)}}" class="action-btn">Vérifier</a></td>
       <td class="action-buttons">
-        <div><input type="button" value="Accepter" class="action-btn" style=" background-color : green;"></div>
-        <div><input type="button" value="Refuser" class="action-btn" style=" background-color : red;"></div>
+        <div><form action="{{route('signuprequest.accept',$signuprequest->id)}}" method="post">
+            @csrf
+            <input type="submit" value="Accepter" class="action-btn" style=" background-color : green;">
+        </form>
+        </div>
+        <div>
+            <form action="{{route('signuprequest.refuse',$signuprequest->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Refuser" class="action-btn" style=" background-color : red;">
+            </form>
+        </div>
     
     </td>
     </tr>

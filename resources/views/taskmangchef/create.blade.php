@@ -9,16 +9,16 @@
     <form action="{{route('taskmangchef.store')}}" method="post">
         @csrf
         <label for="titre">Titre de la Tâche :</label>
-        <input type="text" id="titre" name="titre" required>
+        <input type="text" id="titre" name="titre"  placeholder="titre" required>
         
         <label for="date_echeance">Date d'échéance :</label>
         <input type="date" id="date_echeance" name="date_echeance" required>
 
         <label for="description">Description :</label>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="description" required></textarea>
 
         <label for="notes">Notes :</label>
-        <textarea id="notes" name="notes" rows="3" cols="50"></textarea>
+        <textarea id="notes" name="notes" rows="3" cols="50" placeholder="notes"></textarea>
         <label for="group">selectionnez les membres :</label>
         <div id="select">
             @foreach ($employees as $employee)
