@@ -22,7 +22,7 @@ class signuprequestController extends Controller
     }
     public function accept(signup_request $signuprequestId)
     {
-        @dd($signuprequestId);
+       /// @dd($signuprequestId);
         $firstname = $signuprequestId->Firstname;
         $lastname = $signuprequestId->Lastname;
         $email = $signuprequestId->email;
@@ -47,14 +47,17 @@ class signuprequestController extends Controller
         if($new_user->role=='employee'){
             $new_user->manager_name=manager_department_name::where('department_name',$department)->get('manager_fullName')->first()->manager_fullName;
         };
-        @dd($new_user);
-        //$new_user->save();
+        //@dd($new_user);
+        $new_user->save();
         //$signuprequestId->delete();
-        return redirect()->route('signuprequest.index');
+       // @dd($signuprequestId);
+        return redirect()->route('send_request-accepted_email' ,$signuprequestId->id);
     }
     public function refuse(signup_request $signuprequestId){
-        @dd($signuprequestId);
+        //@dd($signuprequestId);
+        $email = $signuprequestId->email;
        // $signuprequestId->delete();
-        return redirect()->route('signuprequest.index');
+       //@dd($signuprequestId);
+        return redirect()->route('send_request-refused_email', $signuprequestId->id);
     }
 }

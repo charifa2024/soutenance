@@ -4,69 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\manager_department_name;
+use App\Models\User;
 
 class usersprofilesController extends Controller
 {
     //
     public function index(){
-        $allusersprofiles = [
-            [
-                'id' => 1,
-                'date' => '2020-01-01',
-                'nom' => '<NAME>',
-                'email' => '<EMAIL>',
-                'phone_number' => '0600000000',
-                'role' => 'admin',
-                'department' => 'Développement',
-                'post' => 'Développeur',
-               'manager_name' => '<NAME>'
-            ],
-            [
-                'id' => 2,
-                'date' => '2020-01-01',
-                'nom' => '<NAME>',
-                'email' => '<EMAIL>',
-                'phone_number' => '0600000000',
-                'role' => 'admin',
-                'department' => 'Développement',
-                'post' => 'Développeur',
-               'manager_name' => '<NAME>'
-            ],
-            [
-                'id' => 3,
-                'date' => '2020-01-01',
-                'nom' => '<NAME>',
-                'email' => '<EMAIL>',
-                'phone_number' => '0600000000',
-                'role' => 'admin',
-                'department' => 'Développement',
-                'post' => 'Développeur',
-               'manager_name' => '<NAME>'
-            ],
-
-        ];
-
         $manager_names= manager_department_name::all();
-        return view('usersprofiles.index ', ['usersprofiles'=>$allusersprofiles ] , ['manager_names'=>$manager_names]);
+        $users=user::all();
+        //dd($users);
+        return view('usersprofiles.index ', ['manager_names'=>$manager_names , 'users' => $users] );
     }
+ 
 
-
-    public function show($id){
-        $usersprofile =
-            [
-                'id' => 1,
-                'date' => '2020-01-01',
-                'nom' => '<NAME>',
-                'email' => '<EMAIL>',
-                'phone_number' => '0600000000',
-                'role' => 'admin',
-                'department' => 'Développement',
-                'post' => 'Développeur',
-                'status' => 'actif',
-               'manager_name' => '<NAME>'
-            ]
-            ;
-            return view('usersprofiles.show ', ['usersprofile' => $usersprofile]);
+    public function show($userId){
+       $users=user::all();
+       //dd($users,$userId);
+       
+       $user = $users->find(1);
+       //dd($user);
+        return view('usersprofiles.show ', ['user'=>$user]);
     }
 
     public function create(){

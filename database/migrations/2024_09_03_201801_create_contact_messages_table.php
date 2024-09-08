@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('message');
-            $table->text('response')->nullable();
-            $table->string('status')->default('unread');
             $table->timestamps();//created_at and updated_at columns
         });
     }

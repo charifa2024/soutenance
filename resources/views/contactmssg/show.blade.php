@@ -17,7 +17,7 @@
     <p><label>Message :</label>{{$single_contactmssg->message}}</p>
     </div>
     <div class="button-container">
-    <div class="responce"><a href="{{route('contactmssg.create')}}">Repondre</a></div>
+    <div class="responce"><a href="{{route('contactmssg.edit',$single_contactmssg->id)}}">Repondre</a></div>
     <div class="close-btn"><a href="{{route('contactmssg.index')}}" >Fermer</a></div>
 </div>
 

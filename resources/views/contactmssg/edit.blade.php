@@ -6,9 +6,9 @@
 <body>
 <div class="container">
         <div class="title-form"><h2>Réponse au Message</h2></div>
-    <form action="{{route('contactmssg.store')}}" method="post">
+    <form action="{{route('contactmssg.update', $single_contactmssg->id)}}" method="post">
         @csrf
-        
+        @method('put')
         <label for="message">Message :</label>
         <textarea id="message" name="message" rows="4" cols="50" required></textarea>
         <input type="submit" value="Envoyer" style="margin-bottom : 10px ; margin-top : 10px; "></input>

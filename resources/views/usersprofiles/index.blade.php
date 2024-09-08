@@ -19,7 +19,6 @@
             <table>
             <thead>
             <tr>
-                <th>#</th>
                 <th>Date de création</th>
                 <th>Nom complet</th>
                 <th>Rôle</th>
@@ -27,13 +26,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($usersprofiles as $usersprofile)
+            @foreach ($users as $user)
     <tr>
-      <td>{{$usersprofile['id']}}</td>
-      <td>{{$usersprofile['date']}}</td>
-      <td>{{$usersprofile['nom']}}</td>
-      <td>{{$usersprofile['role']}}</td>
-      <td><a href="{{route('usersprofiles.show' , $usersprofile['id'])}}" class="action-btn">Voir</a></td>
+      <td>{{$user['created_at']}}</td>
+      <td>{{$user['firstName']}} {{$user['lastName']}}</td>
+      <td>{{$user['role']}}</td>
+      <td><a href="{{route('usersprofiles.show' ,$user->id )}}" class="action-btn">Voir</a></td>
     </tr>
     @endforeach
         </tbody>

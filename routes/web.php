@@ -15,6 +15,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\chef_dashboardController;
 use App\Http\Controllers\chef_breakrequestController;
 use App\Http\Controllers\chef_profileController;
+use App\Http\Controllers\EmailController;
 
 
 Route::get('/', function () {
@@ -51,9 +52,11 @@ route::get('/breakrequestadmin/{breakrequestadmin}', [breakrequestadminControlle
 Route::get('/breakrequestadmin', [breakrequestadminController::class, 'index'])->name('breakrequestadmin.index');
 
 Route::get('/contactmssg', [contactmssgController::class, 'index'])->name('contactmssg.index');
-Route::get('/contactmssg/create', [contactmssgController::class, 'create'])->name('contactmssg.create');
+Route::get('/contactmssg/{contactmssgId}/edit', [contactmssgController::class, 'edit'])->name('contactmssg.edit');
+route::put('/contactmssg/{contactmssgId}', [contactmssgController::class, 'update'])->name('contactmssg.update');
 route::get('/contactmssg/{contactmssgId}', [contactmssgController::class, 'show'])->name('contactmssg.show');
-route::post('/contactmssg', [contactmssgController::class, 'store'])->name('contactmssg.store');
+
+
 
 Route::get('/signuprequest', [signuprequestController::class, 'index'])->name('signuprequest.index');
 route::get('/signuprequest/{signuprequestId}', [signuprequestController::class,'show'])->name('signuprequest.show');
@@ -91,3 +94,7 @@ route::post('/chef_breakrequest', [chef_breakrequestController::class,'store'])-
 Route::get('/chef_profile', [chef_profileController::class, 'index'])->name('chef_profile.index');
 Route::get('/chef_profile/edit', [chef_profileController::class, 'edit'])->name('chef_profile.edit');
 Route::put('/chef_profile', [chef_profileController::class, 'update'])->name('chef_profile.update');
+
+Route::get('send_request-accepted_email/{signuprequestId}' , [EmailController::class, 'Send_RequestAccepted_Email'])->name('send_request-accepted_email');
+route::get('send_request-refused_email/{signuprequestId}', [EmailController::class, 'Send_RequestRefused_Email'])->name('send_request-refused_email');
+Route::get('send_contactmssgResponse_email/{contactmssgId}', [EmailController::class, 'send_contactmssgResponse_Email'])->name('send_contactmssgResponse_email');
