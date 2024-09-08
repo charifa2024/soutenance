@@ -42,7 +42,7 @@ class signuprequestController extends Controller
         $new_user->department= $department;
         $new_user->role= $role;
         if($new_user->role=='manager'){
-        $new_user->manager_name=null;
+        $new_user->manager_name=$signuprequestId->Firstname.' '.$signuprequestId->Lastname;
         };
         if($new_user->role=='employee'){
             $new_user->manager_name=manager_department_name::where('department_name',$department)->get('manager_fullName')->first()->manager_fullName;

@@ -11,7 +11,7 @@
     </div>
     <div class="card-details">
     <p><label>Date de création :</label>{{$user['created_at']}}</p>
-    <p><label>Nom complet :</label>{{$user['firstName']}}</p>
+    <p><label>Nom complet :</label>{{$user['firstName']}} {{$user['lastName']}}</p>
     <p><label>Email :</label>{{$user['email']}}</p>
     <p><label>Numéro du Téléphone:</label>{{$user['phoneNumber']}}</p>
     <p><label>Rôle :</label>{{$user['role']}}</p>

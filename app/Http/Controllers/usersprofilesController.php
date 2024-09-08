@@ -21,7 +21,7 @@ class usersprofilesController extends Controller
        $users=user::all();
        //dd($users,$userId);
        
-       $user = $users->find(1);
+       $user = $users->find($userId);
        //dd($user);
         return view('usersprofiles.show ', ['user'=>$user]);
     }
