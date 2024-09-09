@@ -16,7 +16,6 @@
     <table class="table">
   <thead>
     <tr>
-      <th>#</th>
       <th>Date</th>
       <th>Reason</th>
       <th>status</th>
@@ -25,7 +24,6 @@
   <tbody>
     @foreach ($requests as $request)
     <tr>
-      <td>{{$request['id']}}</td>
       <td>{{$request['date']}}</td>
       <td>{{$request['reason']}}</td>
       <td>{{$request['status']}}</td>

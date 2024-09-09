@@ -39,7 +39,6 @@
     <table class="table">
   <thead>
     <tr>
-      <th>#</th>
       <th>Titre</th>
       <th>description</th>
       <th>statut</th>
@@ -49,7 +48,6 @@
   <tbody>
     @foreach ($tasks as $task)
     <tr>
-      <td>{{$task['id']}}</td>
       <td>{{$task['titre']}}</td>
       <td>{{$task['description']}}</td>
       <td><button class="state">{{$task['status']}}</button></td>

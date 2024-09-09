@@ -18,7 +18,6 @@
             <table>
             <thead>
             <tr>
-                <th>#</th>
                 <th>Date</th>
                 <th>Titre</th>
                 <th>Date de dépôt</th>
@@ -29,7 +28,6 @@
         <tbody>
         @foreach ($tasks as $task)
     <tr>
-      <td>{{$task['id']}}</td>
       <td>{{$task['date']}}</td>
       <td>{{$task['titre']}}</td>
       <td>{{$task['date_depot']}}</td>
