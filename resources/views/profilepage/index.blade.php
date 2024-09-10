@@ -11,27 +11,27 @@
         <h2>vos Informations</h2>
             <div class="profile-info-item">
                 <label for="name">Nom complet :</label>
-                <span id="name">John Doe</span>
+                <span id="name">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</span>
             </div>
             <div class="profile-info-item">
             <label for="email">Email :</label>
-            <span id="email">johndoe@example.com</span>
+            <span id="email">{{ Auth::user()->email }}</span>
             </div>
             <div class="profile-info-item">
                 <label for="phone">Téléphone :</label>
-                <span id="phone">123-456-7890</span>
+                <span id="phone">{{ Auth::user()->phoneNumber }}</span>
             </div>
             <div class="profile-info-item">
                 <label for="department">Département :</label>
-                <span id="department">Informatique</span>
+                <span id="department">{{ Auth::user()->department }}</span>
             </div>
             <div class="profile-info-item">
                 <label for="post">Poste :</label>
-                <span id="post">Développeur</span>
+                <span id="post">{{ Auth::user()->post }}</span>
             </div>
             <div class="profile-info-item">
                 <label for="role">Rôle :</label>
-                <span id="role">utilisateur normal</span>
+                <span id="role">{{ Auth::user()->role }}</span>
             </div>
         </div>
 

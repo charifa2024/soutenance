@@ -10,11 +10,11 @@
             @csrf
             <div class="form-group">
             <label for="start_time">Heure de début :</label>
-                <input type="datetime-local" name="start_time" id="start_time" required>
+                <input type="date" name="start_time" id="start_time" required>
             </div>
             <div class="form-group">
             <label for="end_time">Heure de fin :</label>
-                <input type="datetime-local" name="end_time" id="end_time" required>
+                <input type="date" name="end_time" id="end_time" required>
             </div>
             <div class="form-group">
             <label for="reason">Raison :</label>

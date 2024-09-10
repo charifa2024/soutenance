@@ -9,7 +9,9 @@
         <a href="{{route('breakrequest.index')}}">Demande de Pause</a>
         <a href="#">Telegram</a>
         <a href="{{route('profilepage.index')}}">Profil</a>
-        <button class="btnLogout">Déconnexion</button>
+        <form action="{{route('loginpage.logout')}}" method="get">
+                <input type="submit" value="Déconnexion" class="btnLogout">
+        </form>
 </div>
 </header>
 </body>

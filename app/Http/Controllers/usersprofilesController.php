@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\manager_department_name;
 use App\Models\User;
 
+
 class usersprofilesController extends Controller
 {
     //

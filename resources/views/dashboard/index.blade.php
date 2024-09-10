@@ -6,7 +6,7 @@
 <body>
 <div class="dashboard-container">
     <div class="welcome">
-    <h class="welcome-message">Bienvenue sur votre tableau de bord !</h>
+    <h class="welcome-message">Bienvenue {{ Auth::user()->firstName }} {{ Auth::user()->lastName }} sur votre tableau de bord !</h>
     </div>
     <div class="resume_data">
       <div class="resume_data_item">

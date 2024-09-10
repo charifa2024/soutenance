@@ -9,7 +9,9 @@
     <a href="{{route('contactmssg.index')}}"> Messages de Contact</a>
     <a href="{{route('signuprequest.index')}}"> Demandes d'Inscription</a>
     <a href="{{route('usersprofiles.index')}}"> Les utilisateurs</a>
-    <button class="btnLogout">Déconnexion</button>
+    <form action="{{route('loginpage.logout')}}" method="get">
+                <input type="submit" value="Déconnexion" class="btnLogout">
+        </form>
 </div>
 </header>
 </body>

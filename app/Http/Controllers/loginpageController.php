@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\signup_request;
 use App\Models\manager_department_name;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
+
+
+
 
 use Illuminate\Support\Facades\Hash;
 
@@ -56,5 +62,43 @@ class loginpageController extends Controller
         //dd($signup_request);
         $signup_request->save();
         return to_route('loginpage.show');
+    }
+
+    public function Auth(request $request){
+        $request->validate([
+            'user-email' => 'required|email',
+            'user-pwd' => 'required|min:8',
+        ]);
+        
+        if (Auth::attempt(['email' => $request->input('user-email'), 'password' => $request->input('user-pwd')])) {
+            $user = Auth::user();
+            $userInfo = \App\Models\User::find($user->id);
+            //dd($userInfo);
+            if($userInfo->role == 'employee'){
+            //dd($userInfo);
+            return redirect()->intended('dashboard');
+            }
+            if($userInfo->role == 'manager'){
+              //  dd($userInfo);
+                return redirect()->intended('chef_dashboard');
+            }
+            if($userInfo->role == 'admin'){
+                return redirect()->intended('usersprofiles');
+            }
+            
+            
+        }
+        else{        
+            return back()->withErrors([
+            'user-email' => 'Les identifiants fournis ne correspondent pas à nos enregistrements.',
+        ]);}
+
+    }
+
+
+    public function logout(){
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('loginpage.login');
     }
 }

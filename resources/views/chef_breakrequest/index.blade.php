@@ -16,20 +16,25 @@
     <table class="table">
   <thead>
     <tr>
-      <th>Date</th>
+      <th>Date de demande</th>
       <th>Reason</th>
       <th>status</th>
+      <th>Date de début</th>
+      <th>Date de fin</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($requests as $request)
     <tr>
-      <td>{{$request['date']}}</td>
-      <td>{{$request['reason']}}</td>
-      <td>{{$request['status']}}</td>
+      <td>{{$request->created_at}}</td>
+      <td>{{$request->reason}}</td>
+      <td>{{$request->status}}</td>
+      <td>{{$request->start_date}}</td>
+      <td>{{$request->end_date}}</td>
       </tr>
-    @endforeach
+      @endforeach
   </tbody>
+
 </table>
 <div>
         <div class="add">
