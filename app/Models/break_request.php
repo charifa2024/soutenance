@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class break_request extends Model
 {
     use HasFactory;
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

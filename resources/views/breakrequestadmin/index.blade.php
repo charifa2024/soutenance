@@ -17,7 +17,6 @@
             <table>
             <thead>
             <tr>
-                <th>#</th>
                 <th>Date de Demande</th>
                 <th>Nom Complet de l'Employé</th>
                 <th>Détails</th>
@@ -27,13 +26,18 @@
         <tbody>
             @foreach ($breakrequests as $breakrequest)
     <tr>
-      <td>{{$breakrequest['id']}}</td>
-      <td>{{$breakrequest['date']}}</td>
-      <td>{{$breakrequest['nom']}}</td>
+      <td>{{$breakrequest['created_at']}}</td>
+      <td>{{$breakrequest->user['lastName']}} {{$breakrequest->user['firstName']}}</td>
       <td><a href="{{route('breakrequestadmin.show' , $breakrequest['id'])}}" class="action-btn">Voir</a></td>
       <td class="action-buttons">
-        <div><input type="button" value="Accepter" class="action-btn" style=" background-color : green;"></div>
-        <div><input type="button" value="Refuser" class="action-btn" style=" background-color : red;"></div>
+        <form action="{{route('breakrequestadmin.accept',$breakrequest['id'])}}" method="post">
+            @csrf
+        <div><input type="submit" value="Accepter" class="action-btn" style=" background-color : green;"></div>
+        </form>
+        <form action="{{route('breakrequestadmin.refuse',$breakrequest['id'])}}" method="post">
+            @csrf
+        <div><input type="submit" value="Refuser" class="action-btn" style=" background-color : red;"></div>
+        </form>
     
     </td>
     </tr>

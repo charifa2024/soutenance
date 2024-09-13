@@ -56,6 +56,9 @@ route::post('/breakrequest', [breakrequestController::class, 'store'])->name('br
 Route::get('/breakrequest/create', [breakrequestController::class, 'create'])->name('breakrequest.create')->middleware('auth');
 route::get('/breakrequestadmin/{breakrequestadmin}', [breakrequestadminController::class, 'show'])->name('breakrequestadmin.show')->middleware('auth');
 Route::get('/breakrequestadmin', [breakrequestadminController::class, 'index'])->name('breakrequestadmin.index')->middleware('auth');
+route::post('/breakrequestadmin/{breakrequestadmin}/accept', [breakrequestadminController::class, 'accept'])->name('breakrequestadmin.accept');
+route::post('/breakrequestadmin/{breakrequestadmin}/refuse', [breakrequestadminController::class, 'refuse'])->name('breakrequestadmin.refuse');
+
 
 Route::get('/contactmssg', [contactmssgController::class, 'index'])->name('contactmssg.index')->middleware('auth');
 Route::get('/contactmssg/{contactmssgId}/edit', [contactmssgController::class, 'edit'])->name('contactmssg.edit')->middleware('auth');
