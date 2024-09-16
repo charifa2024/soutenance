@@ -108,4 +108,8 @@ Route::get('send_request-accepted_email/{signuprequestId}' , [EmailController::c
 route::get('send_request-refused_email/{signuprequestId}', [EmailController::class, 'Send_RequestRefused_Email'])->name('send_request-refused_email');
 Route::get('send_contactmssgResponse_email/{contactmssgId}', [EmailController::class, 'send_contactmssgResponse_Email'])->name('send_contactmssgResponse_email');
 
+Route::get('/dashboard/{id}/state', [dashboardController::class, 'state'])->name('dashboard.state');
+route::get('/dashboard/{id}/show', [dashboardController::class, 'show'])->name('dashboard.show')->middleware('auth');
 
+Route::get('/chef_dashboard/{id}/state', [chef_dashboardController::class, 'state'])->name('chef_dashboard.state');
+route::get('/chef_dashboard/{id}/show', [chef_dashboardController::class, 'show'])->name('chef_dashboard.show')->middleware('auth');

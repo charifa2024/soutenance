@@ -12,7 +12,7 @@
       <div class="resume_data_item">
         <div class="tasks-done">
           <h2>Tâches personnelles</h2>
-          <div class="data-cercle">23</div>
+          <div class="data-cercle">{{$nbr_notdone}}</div>
         </div>
         <div class="tasks-done">
           <h2>Tâches assignées au group</h2>
@@ -20,7 +20,7 @@
         </div>
         <div class="tasks-done">
           <h2>Nombre des membres</h2>
-          <div class="data-cercle">23</div>
+          <div class="data-cercle">{{$employeeCount}}</div>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="dashboard-content">
     <div class="tasks_container">
     <div class="tasks-table-header">
-    <form action="#" method="get" class="search-form">
+            <form action="#" method="get" class="search-form">
             <h1>Liste de Tâches personnelles</h1>
                 <input type="text" name="search" placeholder="Rechercher..." class="search-input">
                 <button type="submit" class="search-btn">Rechercher</button>
@@ -39,25 +39,37 @@
     <table class="table">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Titre</th>
-      <th>description</th>
-      <th>statut</th>
+      <th>status</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($tasks as $task)
     <tr>
-      <td>{{$task['titre']}}</td>
-      <td>{{$task['description']}}</td>
-      <td><button class="state">{{$task['status']}}</button></td>
+      <td>{{$task['created_at']}}</td>
+      <td>{{$task['title']}}</td>
+      @if ($task['status'] === 'en cours')
+      <td style="color:red;" >{{$task['status']}}</td>
+      @endif
+      @if($task['status'] === 'complète')
+      <td style="color:green;" >{{$task['status']}}</td>
+      @endif
       <td><div class="actions">
+      <button class="view-btn"> <a href="{{route('chef_dashboard.show' , $task['id'])}}">Voir</a></button>
       <button class="edit-btn" ><a href="{{route('chef_dashboard.edit' , $task['id'])}}">Modifier</a></button>
       <form method="POST" action="{{route('chef_dashboard.destroy', $task['id'])}}">
         @csrf
         @method('DELETE')
       <button  type="submit" class="delete-btn" >Supprimer</button>
       </form>
+      @if ($task['status'] === 'en cours')
+      <form method="get" action="{{ route('chef_dashboard.state', $task['id']) }}">
+    <button type="submit" class="state">Terminé</button>
+</form>
+@endif
+
       </div>
 
       </td>
@@ -75,28 +87,9 @@
 </div>
     </div>
 </div>
-@if(session()->has('success'))
-<div class="popup-confirm">
-  <div class="popup">
-  <div class="popup-confirm-content">
-    <h2>Êtes-vous sûr de vouloir supprimer cette tâche?</h2>
-    <div class="popup-confirm-btn">
-      {{session('success')}}
-    
-      <button class="btn-confirm" onclick="destroy_session()">Oui</button>
-      <button class="btn-cancel" onclick="destroy_session()">Non</button>
-    </div>
-    </div>
-</div>
-@endif
-
 <script>
-  function destroy_session(){
-    sessionStorage.removeItem('success');
-    window.location.reload();
-  }
+  
 </script>
-<script src="{{asset('JS/state_button.js')}}" ></script>
 </body>
 </html>
 @endsection

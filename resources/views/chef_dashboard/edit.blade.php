@@ -6,16 +6,16 @@
 <body>
 <div class="container">
         <div class="title-form"><h2>Modifier une Tâche</h2></div>
-    <form method="POST" action="{{route('chef_dashboard.update',1)}}">
+    <form method="POST" action="{{route('chef_dashboard.update',$task['id'])}}">
     
         @csrf
         @method('PUT')
         <label for="titre">Titre de la Tâche :</label>
-        <input type="text" id="titre" name="titre" placeholder="titre" required>
+        <input type="text" id="titre" name="titre" placeholder="titre" value="{{ $task['title']}}"  required>
 
 
         <label for="description">Description :</label>
-        <textarea id="description" name="description" rows="4" cols="50" placeholder="description" required></textarea>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="description" required>{{ $task['description'] }}</textarea>
 
         <input type="submit" value="Modifier la Tâche">
         <div class="close-btn"><a href="{{route('chef_dashboard.index')}}" >Fermer</a></div>

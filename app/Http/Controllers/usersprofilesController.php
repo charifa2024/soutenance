@@ -79,6 +79,6 @@ class usersprofilesController extends Controller
             ->update(['manager_name' => $manager_name, 'department' => $department_name]);
     
         return redirect()->route('usersprofiles.index');
-    }
+    }    
     
 }
