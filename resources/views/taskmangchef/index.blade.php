@@ -26,9 +26,9 @@
   <tbody>
     @foreach ($tasks as $task)
     <tr>
-      <td>{{$task['date']}}</td>
-      <td>{{$task['titre']}}</td>
-      <td>{{$task['date_depot']}}</td>
+      <td>{{$task['created_at']}}</td>
+      <td>{{$task['title']}}</td>
+      <td>{{$task['due_date']}}</td>
       <td>{{$task['status']}}</td>
       <td><div class="actions">
       <button class="edit-btn" ><a href="{{route('taskmangchef.edit' , $task['id'])}}">Modifier</a></button>

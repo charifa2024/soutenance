@@ -6,20 +6,20 @@
 <body>
     <div class="container">
         <div class="title-form"><h2>Modifier une Tâche</h2></div>
-    <form action="{{route('taskmangchef.update' , 1)}}" method="post">
+    <form action="{{route('taskmangchef.update' , $task['id'])}}" method="post">
         @csrf
         @method('PUT')
         <label for="date_echeance">Date d'échéance :</label>
-        <input type="date" id="date_echeance" name="date_echeance" required>
+        <input type="date" id="date_echeance" name="date_echeance" value="{{ $task['due_date'] }}" required>
 
         <label for="description">Description :</label>
-        <textarea id="description" name="description" rows="4" cols="50" placeholder="description" required></textarea>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="description" required>{{ $task['description'] }}</textarea>
 
         <label for="notes">Notes :</label>
-        <textarea id="notes" name="notes" rows="3" cols="50" placeholder="notes"></textarea>
+        <textarea id="notes" name="notes" rows="3" cols="50" placeholder="notes">{{ $task['notes'] }}</textarea>
 
         <input type="submit" value="Modifier la Tâche">
-        <div class="close-btn"><a href="{{route('taskmangchef.index' , )}}" >Fermer</a></div>
+        <div class="close-btn"><a href="{{route('taskmangchef.index')}}" >Fermer</a></div>
     </form>
     </div>
 </body>

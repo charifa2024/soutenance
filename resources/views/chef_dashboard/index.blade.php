@@ -16,7 +16,7 @@
         </div>
         <div class="tasks-done">
           <h2>Tâches assignées au group</h2>
-          <div class="data-cercle">23</div>
+          <div class="data-cercle">{{$nbr_assigned_tasks}}</div>
         </div>
         <div class="tasks-done">
           <h2>Nombre des membres</h2>

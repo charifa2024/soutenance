@@ -10,16 +10,16 @@
     Détails de la Tâche  
     </div>
     <div class="card-details">
-    <p><label>Date :</label>{{$task['date']}}</p>
-    <p><label>Date d'échéance :</label> {{$task['date_depot']}}</p>
-    <p><label>Titre :</label> {{$task['titre']}}</p>
-    <p><label>Statut :</label> {{$task['statut']}}</p>
+    <p><label>Date :</label>{{$task['created_at']}}</p>
+    <p><label>Date d'échéance :</label> {{$task['due_date']}}</p>
+    <p><label>Titre :</label> {{$task['title']}}</p>
+    <p><label>Status :</label> {{$task['status']}}</p>
     <p><label>Description :</label> {{$task['description']}}</p>
-    <p><label>Responsable :</label> {{$task['responsable']}}</p>
+    <p><label>Responsable :</label> {{$createdBy->firstName}} {{$createdBy->lastName}}</p>
     <p><label>Affecté à :</label>
     <ul>
         @foreach($task['for'] as $user)
-        <li>{{$user['name']}}</li>
+        <li>{{$user['firstName']}} {{$user['lastName']}}</li>
         @endforeach
     </ul>
     </p>

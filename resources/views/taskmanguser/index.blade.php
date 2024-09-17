@@ -21,18 +21,29 @@
                 <th>Date</th>
                 <th>Titre</th>
                 <th>Date de dépôt</th>
-                <th>Statut</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-        @foreach ($tasks as $task)
+        @foreach ($tasks as $task )
     <tr>
-      <td>{{$task['date']}}</td>
-      <td>{{$task['titre']}}</td>
-      <td>{{$task['date_depot']}}</td>
-      <td><button class="state">{{$task['status']}}</button></td>
-      <td><a href="{{route('taskmanguser.show' , $task['id'])}}" class="action-btn">Voir</a></td>
+      <td>{{$task['created_at']}}</td>
+      <td>{{$task['title']}}</td>
+      <td>{{$task['due_date']}}</td>
+      <td>{{$task['status_user']}}</td>
+    <td><div class="actions">
+      <button class="view-btn"> <a href="{{route('taskmanguser.show' , $task['id'])}}">Voir</a></button>
+      @if ($task['status_user'] === 'on')
+      <form method="get" action="#">
+        @csrf
+    <button type="submit" class="state">Terminé</button>
+</form>
+@endif
+
+      </div>
+
+      </td>
     </tr>
     @endforeach
         </tbody>

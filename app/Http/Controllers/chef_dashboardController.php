@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Personal_task;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\assigned_task;
 class chef_dashboardController extends Controller
 {
     //
@@ -24,8 +25,10 @@ class chef_dashboardController extends Controller
         $alltasks = Personal_task::all()->where('user_id', Auth::user()->id);
         $notdone = Personal_task::all()->where('user_id', Auth::user()->id)->where('status', 'en cours');
         $nbr_notdone = count($notdone);
+        $assigned_tasks = assigned_task::all()->where('created_by', Auth::user()->id);
+        $nbr_assigned_tasks = count($assigned_tasks);
         $employeeCount = $this->getEmployeeCount();
-        return view('chef_dashboard.index' , ['tasks' => $alltasks , 'nbr_notdone' => $nbr_notdone , 'employeeCount' => $employeeCount]);
+        return view('chef_dashboard.index' , ['tasks' => $alltasks , 'nbr_notdone' => $nbr_notdone , 'employeeCount' => $employeeCount , 'nbr_assigned_tasks' => $nbr_assigned_tasks]);
     }
     public function show($id){
         $task = Personal_task::find($id);

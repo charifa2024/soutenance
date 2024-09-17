@@ -22,7 +22,7 @@
         <label for="group">selectionnez les membres :</label>
         <div id="select">
             @foreach ($employees as $employee)
-            <input type="checkbox" name="group[]" value="{{$employee['id']}}"><span for="name">{{$employee['name']}}</span><br>
+            <input type="checkbox" name="group[]" value="{{$employee['id']}}"><span for="name">{{$employee['firstName']}} {{$employee['lastName']}}</span><br>
             @endforeach
         </div>
         <input type="submit" value="Créer la Tâche">
