@@ -11,22 +11,36 @@ use App\Models\task_user_relation;
 class taskmangchefController extends Controller
 {
     //
-   public function index(){
-
-    $loggedInUser = Auth::user();
-    $alltasks = assigned_task::all()->where('created_by', $loggedInUser->id);
-    return view('taskmangchef.index', ['tasks'=>$alltasks]);
-   }
-
-   public function show($id){
-    $singletask = assigned_task::find($id);
-    $assigned_to = task_user_relation::where('task_id', $id)
-        ->with('user')
-        ->get();
+    public function index()
+    {
+        $loggedInUser = Auth::user();
+        $alltasks = assigned_task::where('created_by', $loggedInUser->id)->get();
+        $now = now();
     
-    return view('taskmangchef.show', ['task' => $singletask, 'assigned_to' => $assigned_to]);
-}
-
+        foreach ($alltasks as $task) {
+            $allCompleted = task_user_relation::where('task_id', $task->id)
+                ->where('status_user', '!=', 'off')
+                ->doesntExist();
+    
+            if ($allCompleted && $task->status !== 'off') {
+                $task->status = 'off';
+                $task->save();
+            }
+    
+            
+            if ($task->due_date < $now && $task->status === 'on') {
+                $task->status = 'pause';
+                $task->save();
+    
+                
+                task_user_relation::where('task_id', $task->id)
+                    ->update(['status_user' => 'pause']);
+            }
+        }
+    
+        return view('taskmangchef.index', ['tasks' => $alltasks]);
+    }
+    
 
    public function create(){
     $loggedInUser = Auth::user();

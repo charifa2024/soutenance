@@ -29,8 +29,15 @@
       <td>{{$task['created_at']}}</td>
       <td>{{$task['title']}}</td>
       <td>{{$task['due_date']}}</td>
-      <td>{{$task['status']}}</td>
-      <td><div class="actions">
+      @if ($task['status'] === 'on')
+      <td style="color:red;" >{{$task['status']}}</td>
+      @endif
+      @if($task['status'] === 'off')
+      <td style="color:green;" >{{$task['status']}}</td>
+      @endif
+      @if($task['status'] === 'pause')
+      <td>temps Terminé</td>
+      @endif      <td><div class="actions">
       <button class="edit-btn" ><a href="{{route('taskmangchef.edit' , $task['id'])}}">Modifier</a></button>
       <button class="view-btn"> <a href="{{route('taskmangchef.show' , $task['id'])}}">Voir</a></button>
       </div>

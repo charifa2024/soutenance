@@ -6,18 +6,36 @@ use Illuminate\Http\Request;
 use App\Models\Personal_task;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\task_user_relation;
+
 
 
 
 class dashboardController extends Controller
 {
     //
-    public function index(){
-        $alltasks = Personal_task::all()->where('user_id', Auth::user()->id);
-        $notdone = Personal_task::all()->where('user_id', Auth::user()->id)->where('status', 'en cours');
-        $nbr_notdone = count($notdone);
-        return view('dashboard.index' , ['tasks' => $alltasks , 'nbr_notdone' => $nbr_notdone]);
+    public function index()
+    {
+        $user = Auth::user();
+        $alltasks = Personal_task::where('user_id', $user->id)->get();
+        $notdone = Personal_task::where('user_id', $user->id)->where('status', 'en cours')->count();
+    
+        $assignedTasksCount = task_user_relation::where('user_id', $user->id)
+            ->where('status_user', 'on')
+            ->count();
+    
+        $completedAssignedTasksCount = task_user_relation::where('user_id', $user->id)
+            ->where('status_user', 'off')
+            ->count();
+    
+        return view('dashboard.index', [
+            'tasks' => $alltasks,
+            'nbr_notdone' => $notdone,
+            'assignedTasksCount' => $assignedTasksCount,
+            'completedAssignedTasksCount' => $completedAssignedTasksCount
+        ]);
     }
+    
     public function show($id){
         $task = Personal_task::find($id);
         return view('dashboard.show', ['task' => $task]);

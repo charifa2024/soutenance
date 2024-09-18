@@ -16,11 +16,11 @@
         </div>
         <div class="tasks-done">
           <h2>Tâches assignées</h2>
-          <div class="data-cercle">23</div>
+          <div class="data-cercle">{{$assignedTasksCount}}</div>
         </div>
         <div class="tasks-done">
           <h2>Tâches complétées</h2>
-          <div class="data-cercle">23</div>
+          <div class="data-cercle">{{$completedAssignedTasksCount}}</div>
         </div>
       </div>
     </div>

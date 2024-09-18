@@ -34,9 +34,9 @@ class chef_profileController extends Controller
             $user->save();
         }
         if($phone_number!==null){
-            $user->phone_number=$phone_number;
+            $user->phoneNumber=$phone_number;
             $user->save();
         }
-       return to_route('profilepage.index');
+       return to_route('chef_profile.index');
     }
 }

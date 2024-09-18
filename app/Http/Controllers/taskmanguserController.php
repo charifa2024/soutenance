@@ -44,5 +44,20 @@ class taskmanguserController extends Controller
     
         return view('taskmanguser.show', ['task' => $singletask , 'createdBy' => $createdBy]);
     }
+    public function state($id){
+        $loggedInUser = Auth::user();
+        //DD($loggedInUser);
+        $task = task_user_relation::where('task_id', $id)
+        ->where('user_id', $loggedInUser->id)
+        ->first();
+
+        //dd($task);
+        if ($task) {
+            //dd($task->user_id, $task->task_id, $task->status_user);
+            $task->status_user = 'off';
+            $task->save();
+        }
+        return redirect()->route('taskmanguser.index');
+    }
     
 }

@@ -35,7 +35,7 @@ class profilepageController extends Controller
             $user->save();
         }
         if($phone_number!==null){
-            $user->phone_number=$phone_number;
+            $user->phoneNumber=$phone_number;
             $user->save();
         }
        return to_route('profilepage.index');

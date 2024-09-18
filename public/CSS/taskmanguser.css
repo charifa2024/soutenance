@@ -143,9 +143,8 @@ th {
     gap: 10px;
 }
 .view-btn{
-    width: 30%;
-    padding: 10px;
-    margin: 5px;
+    width: 40%;
+    padding: 5px;
     background-color: #0053ab;
     color: #1f1e1e;
     border: none;

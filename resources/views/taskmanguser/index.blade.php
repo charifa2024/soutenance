@@ -31,11 +31,19 @@
       <td>{{$task['created_at']}}</td>
       <td>{{$task['title']}}</td>
       <td>{{$task['due_date']}}</td>
-      <td>{{$task['status_user']}}</td>
+      @if ($task['status_user'] === 'on')
+      <td style="color:red;" >{{$task['status_user']}}</td>
+      @endif
+      @if($task['status_user'] === 'off')
+      <td style="color:green;" >{{$task['status_user']}}</td>
+      @endif
+      @if($task['status_user'] === 'pause')
+      <td>temps Terminé</td>
+      @endif
     <td><div class="actions">
       <button class="view-btn"> <a href="{{route('taskmanguser.show' , $task['id'])}}">Voir</a></button>
       @if ($task['status_user'] === 'on')
-      <form method="get" action="#">
+      <form method="get" action="{{ route('taskmanguser.state', $task['id']) }}">
         @csrf
     <button type="submit" class="state">Terminé</button>
 </form>
@@ -50,7 +58,7 @@
         </table>
         </div>
 </div>
-<script src="{{asset('JS/state_button.js')}}" ></script>
+
 
 </body>
 </html>

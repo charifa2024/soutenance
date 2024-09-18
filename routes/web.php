@@ -113,3 +113,5 @@ route::get('/dashboard/{id}/show', [dashboardController::class, 'show'])->name('
 
 Route::get('/chef_dashboard/{id}/state', [chef_dashboardController::class, 'state'])->name('chef_dashboard.state');
 route::get('/chef_dashboard/{id}/show', [chef_dashboardController::class, 'show'])->name('chef_dashboard.show')->middleware('auth');
+
+Route::get('/taskmanguser/{id}/state', [taskmanguserController::class, 'state'])->name('taskmanguser.state');
