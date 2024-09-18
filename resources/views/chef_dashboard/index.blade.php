@@ -59,11 +59,12 @@
       <td><div class="actions">
       <button class="view-btn"> <a href="{{route('chef_dashboard.show' , $task['id'])}}">Voir</a></button>
       <button class="edit-btn" ><a href="{{route('chef_dashboard.edit' , $task['id'])}}">Modifier</a></button>
-      <form method="POST" action="{{route('chef_dashboard.destroy', $task['id'])}}">
-        @csrf
-        @method('DELETE')
-      <button  type="submit" class="delete-btn" >Supprimer</button>
-      </form>
+      <form method="POST" action="{{route('dashboard.destroy', $task['id'])}}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?');">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="delete-btn">Supprimer</button>
+</form>
+
       @if ($task['status'] === 'en cours')
       <form method="get" action="{{ route('chef_dashboard.state', $task['id']) }}">
     <button type="submit" class="state">Terminé</button>

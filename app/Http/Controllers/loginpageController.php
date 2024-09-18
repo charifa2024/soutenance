@@ -36,7 +36,7 @@ class loginpageController extends Controller
             'password_confirmation'=>'required|min:8',
         ]);
         if($request->password!=$request->password_confirmation){
-            return redirect()->back()->withErrors('Les deux  mots de passe ne rassemblent pas');
+            return redirect()->back()->withErrors('Les deux mots de passe ne correspondent pas');
         }
         else{
             $password=Hash::make($request->password);
@@ -65,10 +65,18 @@ class loginpageController extends Controller
     }
 
     public function Auth(request $request){
+        $messages = [
+            'user-email.required' => 'L\'adresse e-mail est obligatoire.',
+            'user-email.email' => 'Veuillez entrer une adresse e-mail valide.',
+            'user-pwd.required' => 'Le mot de passe est obligatoire.',
+            'user-pwd.min' => 'Le mot de passe doit contenir au moins 8 caractères.',
+        ];
+        
         $request->validate([
             'user-email' => 'required|email',
             'user-pwd' => 'required|min:8',
-        ]);
+        ], $messages);
+        
         
         if (Auth::attempt(['email' => $request->input('user-email'), 'password' => $request->input('user-pwd')])) {
             $user = Auth::user();
@@ -89,8 +97,7 @@ class loginpageController extends Controller
             
         }
         else{        
-            return back()->withErrors([
-            'user-email' => 'Les identifiants fournis ne correspondent pas à nos enregistrements.',
+            return back()->withErrors(['user-email' => 'L\'adresse e-mail ou le mot de passe est incorrect.',
         ]);}
 
     }

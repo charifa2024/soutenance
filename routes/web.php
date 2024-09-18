@@ -115,3 +115,4 @@ Route::get('/chef_dashboard/{id}/state', [chef_dashboardController::class, 'stat
 route::get('/chef_dashboard/{id}/show', [chef_dashboardController::class, 'show'])->name('chef_dashboard.show')->middleware('auth');
 
 Route::get('/taskmanguser/{id}/state', [taskmanguserController::class, 'state'])->name('taskmanguser.state');
+Route::delete('/usersprofiles/{userId}', [usersprofilesController::class, 'destroy'])->name('usersprofiles.destroy')->middleware('auth');

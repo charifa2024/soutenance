@@ -6,12 +6,29 @@ use Illuminate\Http\Request;
 use App\Models\manager_department_name;
 use App\Models\User;
 use App\Models\break_request;
+use Illuminate\Support\Facades\DB;
 
 
 
 class usersprofilesController extends Controller
 {
     //
+
+    public function destroy($userId)
+{
+    DB::transaction(function () use ($userId) {
+        // Delete related records
+        DB::table('break_requests')->where('user_id', $userId)->delete();
+        DB::table('task_user_relations')->where('user_id', $userId)->delete();
+        DB::table('assigned_tasks')->where('created_by', $userId)->delete();
+        DB::table('personal_tasks')->where('user_id', $userId)->delete();
+        
+        // Delete the user
+        User::destroy($userId);
+    });
+
+    return redirect()->route('usersprofiles.index');
+}
     public function index()
     {
         $manager_names = manager_department_name::all();

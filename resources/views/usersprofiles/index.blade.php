@@ -31,7 +31,13 @@
       <td>{{$user['created_at']}}</td>
       <td>{{$user['firstName']}} {{$user['lastName']}}</td>
       <td>{{$user['role']}}</td>
-      <td><a href="{{route('usersprofiles.show' ,$user->id )}}" class="action-btn">Voir</a></td>
+      <td><div class="actions">
+      <button class="view-btn"> <a href="{{route('usersprofiles.show' ,$user->id)}}">Voir</a></button>
+      <form id="delete-form-{{ $user->id }}" method="POST" action="{{ route('usersprofiles.destroy', $user->id) }}">    @csrf
+    @method('DELETE')
+    <button type="button" class="delete-btn" onclick="confirmDelete({{ $user->id }})">Supprimer</button>
+    </form>
+</td>
     </tr>
     @endforeach
         </tbody>
@@ -59,7 +65,9 @@
     <tr>
       <td>{{$manager_name->manager_fullName}}</td>
       <td>{{$manager_name->department_name}}</td>
-      <td><a href="{{route('usersprofiles.edit',$manager_name->id)}}" class="action-btn">Editer</a></td>
+      <td><a href="{{route('usersprofiles.edit',$manager_name->id)}}" class="action-btn">Editer</a>
+
+    </td>
     </tr>
     @endforeach
         </tbody>
@@ -73,6 +81,15 @@
     </div>
     </div>
 </div>
+<script>
+function confirmDelete(userId) {
+    if (confirm('Est-ce que vous êtes sûr de vouloir supprimer cet utilisateur ?')) {
+        document.getElementById('delete-form-' + userId).submit();
+    }
+}
+</script>
+
+
 </body>
 </html>
 @endsection

@@ -38,24 +38,6 @@ th {
     margin-bottom: 20px;
 }
 
-.action-btn{
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: #0053ab;
-    color: #fff;
-    border: none;
-    font-weight: lighter;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.action-btn:hover {
-    background-color: #00346b;
-}
-
 .details_container{
     position: relative;
     margin-top: 10%;
@@ -248,3 +230,38 @@ input[type="submit"]:hover {
 .close-btn a:hover {
     background-color: #00346b;
 }
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.view-btn{
+    width: 30%;
+    padding: 10px;
+    margin: 5px;
+    background-color: #0053ab;
+    color: #1f1e1e;
+    border: none;
+    font-weight: lighter;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-btn{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    font-weight: lighter;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
