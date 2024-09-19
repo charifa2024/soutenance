@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{asset('css/breakrequest.css')}}">
     <div class="requests_container">
     <div class="requests-table-header">
-      <form action="#" method="get" class="search-form">
-      <h1>Demandes des congés </h1>
-                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
-                <button type="submit" class="search-btn">Rechercher</button>
-            </form>
+    <form action="{{ route('breakrequest.index') }}" method="get" class="search-form">
+    <input type="text" name="search" placeholder="Rechercher..." class="search-input" value="{{ $search ?? '' }}">
+    <button type="submit" class="search-btn">Rechercher</button>
+</form>
+
     </div>
 
 

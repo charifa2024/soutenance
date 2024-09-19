@@ -9,11 +9,25 @@ use App\Models\break_request;
 class breakrequestadminController extends Controller
 {
     //
-    public function index(){
-        //@dd($allbreakrequest);
-        $allbreakrequest=break_request::with('User')->where('status','pending')->get();
-        return view('breakrequestadmin.index', ['breakrequests'=>$allbreakrequest]);
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+    
+        $allbreakrequest = break_request::with('User')
+            ->where('status', 'pending')
+            ->when($search, function ($query, $search) {
+                return $query->whereHas('user', function ($q) use ($search) {
+                    $q->where('firstName', 'like', "%{$search}%")
+                      ->orWhere('lastName', 'like', "%{$search}%");
+                })
+                ->orWhere('created_at', 'like', "%{$search}%")
+                ->orWhere('reason', 'like', "%{$search}%");
+            })
+            ->get();
+    
+        return view('breakrequestadmin.index', ['breakrequests' => $allbreakrequest]);
     }
+    
 
     public function show($id){
         $breakrequest = break_request::with('User')->find($id);

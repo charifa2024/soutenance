@@ -14,11 +14,21 @@ use App\Models\task_user_relation;
 class dashboardController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $alltasks = Personal_task::where('user_id', $user->id)->get();
-        $notdone = Personal_task::where('user_id', $user->id)->where('status', 'en cours')->count();
+        $search = $request->input('search');
+    
+        $alltasks = Personal_task::where('user_id', $user->id)
+            ->when($search, function ($query) use ($search) {
+                return $query->where('title', 'like', "%{$search}%")
+                             ->orWhere('description', 'like', "%{$search}%");
+            })
+            ->get();
+    
+        $notdone = Personal_task::where('user_id', $user->id)
+            ->where('status', 'en cours')
+            ->count();
     
         $assignedTasksCount = task_user_relation::where('user_id', $user->id)
             ->where('status_user', 'on')
@@ -32,9 +42,11 @@ class dashboardController extends Controller
             'tasks' => $alltasks,
             'nbr_notdone' => $notdone,
             'assignedTasksCount' => $assignedTasksCount,
-            'completedAssignedTasksCount' => $completedAssignedTasksCount
+            'completedAssignedTasksCount' => $completedAssignedTasksCount,
+            'search' => $search
         ]);
     }
+    
     
     public function show($id){
         $task = Personal_task::find($id);

@@ -13,20 +13,30 @@ use App\Models\User;
 class taskmanguserController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
         $loggedInUser = Auth::user();
-        $taskRelations = task_user_relation::where('user_id', $loggedInUser->id)->get();
+        $search = $request->input('search');
+    
+        $query = task_user_relation::where('user_id', $loggedInUser->id);
+    
+        if ($search) {
+            $query->whereHas('task', function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+    
+        $taskRelations = $query->get();
         $taskIds = $taskRelations->pluck('task_id');
         $alltasks = assigned_task::whereIn('id', $taskIds)->get();
     
-        // Attach status_user to each task
         $alltasks = $alltasks->map(function ($task) use ($taskRelations) {
             $relation = $taskRelations->where('task_id', $task->id)->first();
             $task->status_user = $relation ? $relation->status_user : null;
             return $task;
         });
     
-        return view('taskmanguser.index', ['tasks' => $alltasks]);
+        return view('taskmanguser.index', ['tasks' => $alltasks, 'search' => $search]);
     }
     
 

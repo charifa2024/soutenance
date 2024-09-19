@@ -10,10 +10,21 @@ use App\Models\User;
 class signuprequestController extends Controller
 {
     //
-    public function index(){
-        $allsignuprequest=signup_request::all();
-        return view('signuprequest.index' , ['signuprequests'=>$allsignuprequest]);
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+        
+        $signuprequests = Signup_request::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('Firstname', 'like', "%{$search}%")
+                             ->orWhere('Lastname', 'like', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        return view('signuprequest.index', compact('signuprequests'));
     }
+    
 
     public function show(signup_request $signuprequestId)
     {

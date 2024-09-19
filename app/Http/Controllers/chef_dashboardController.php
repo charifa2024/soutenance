@@ -21,14 +21,21 @@ class chef_dashboardController extends Controller
     return $employeeCount;
 }
 
-    public function index(){
-        $alltasks = Personal_task::all()->where('user_id', Auth::user()->id);
+    public function index(Request $request){
+        $search = $request->input('search');
+    
+        $tasks = Personal_task::where('user_id', Auth::id())
+                     ->when($search, function ($query) use ($search) {
+                         return $query->where('title', 'like', "%{$search}%")
+                                      ->orWhere('description', 'like', "%{$search}%");
+                     })
+                     ->get();
         $notdone = Personal_task::all()->where('user_id', Auth::user()->id)->where('status', 'en cours');
         $nbr_notdone = count($notdone);
         $assigned_tasks = assigned_task::all()->where('created_by', Auth::user()->id);
         $nbr_assigned_tasks = count($assigned_tasks);
         $employeeCount = $this->getEmployeeCount();
-        return view('chef_dashboard.index' , ['tasks' => $alltasks , 'nbr_notdone' => $nbr_notdone , 'employeeCount' => $employeeCount , 'nbr_assigned_tasks' => $nbr_assigned_tasks]);
+        return view('chef_dashboard.index', compact('tasks', 'nbr_notdone', 'nbr_assigned_tasks', 'employeeCount'));
     }
     public function show($id){
         $task = Personal_task::find($id);

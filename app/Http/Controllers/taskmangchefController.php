@@ -11,10 +11,21 @@ use App\Models\task_user_relation;
 class taskmangchefController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $loggedInUser = Auth::user();
-        $alltasks = assigned_task::where('created_by', $loggedInUser->id)->get();
+        $query = assigned_task::where('created_by', $loggedInUser->id);
+    
+        
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('title', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('description', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+    
+        $alltasks = $query->get();
         $now = now();
     
         foreach ($alltasks as $task) {

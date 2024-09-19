@@ -28,12 +28,12 @@
     <div class="dashboard-content">
     <div class="tasks_container">
     <div class="tasks-table-header">
-            <form action="#" method="get" class="search-form">
-            <h1>Liste de Tâches personnelles</h1>
-                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
-                <button type="submit" class="search-btn">Rechercher</button>
-            </form>
-    </div>
+    <form action="{{ route('dashboard.index') }}" method="get" class="search-form">
+        <h1>Liste de Tâches personnelles</h1>
+        <input type="text" name="search" placeholder="Rechercher..." class="search-input" value="{{ request('search') }}">
+        <button type="submit" class="search-btn">Rechercher</button>
+    </form>
+</div>
 
     <div class="tasks-table">
     <table class="table">

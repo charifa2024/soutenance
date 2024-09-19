@@ -11,12 +11,25 @@ use App\Models\break_request;
 class chef_breakrequestController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request)
+    {
         $user = Auth::user();
-        $requests = break_request::where('user_id', $user->id)->get();
-        //dd($requests);
-        return view('chef_breakrequest.index',['requests'=>$requests ]);
+        $query = break_request::where('user_id', $user->id);
+    
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function($q) use ($search) {
+                $q->where('reason', 'like', "%{$search}%")
+                  ->orWhere('start_date', 'like', "%{$search}%")
+                  ->orWhere('end_date', 'like', "%{$search}%");
+            });
+        }
+    
+        $requests = $query->get();
+    
+        return view('chef_breakrequest.index', ['requests' => $requests]);
     }
+    
     public function create(){
         return view('chef_breakrequest.create');
     }

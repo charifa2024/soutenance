@@ -8,11 +8,12 @@
 <div class="usersprofiles-table">
     <div class="usersprofiles-table-container">
         <div class="usersprofiles-table-header">
-            <form action="#" method="get" class="search-form">
-            <h1>Gestion des profils des utilisateurs</h1>
-                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
-                <button type="submit" class="search-btn">Rechercher</button>
-            </form>
+        <form action="{{ route('usersprofiles.index') }}" method="get" class="search-form">
+    <h1>Gestion des profils des utilisateurs</h1>
+    <input type="text" name="search" placeholder="Rechercher..." class="search-input" value="{{ request('search') }}">
+    <button type="submit" class="search-btn">Rechercher</button>
+</form>
+
         </div>
 
         <div class="usersprofiles-table-body">

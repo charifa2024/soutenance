@@ -29,26 +29,34 @@ class usersprofilesController extends Controller
 
     return redirect()->route('usersprofiles.index');
 }
-    public function index()
-    {
-        $manager_names = manager_department_name::all();
-        $users = User::where('role', '!=', 'admin')->get();
-        $allbreakrequest = break_request::with('User')->get();
+public function index(Request $request)
+{
+    $search = $request->input('search');
     
-        foreach ($users as $user) {
-            if ($user->work_status === 'free') {
-                $latestBreakRequest = $user->breakRequests()->latest()->first();
-                
-                if ($latestBreakRequest && $latestBreakRequest->end_date < now()) {
-                    $user->work_status = 'active';
-                    $user->save();
-                }
+    $users = User::where('role', '!=', 'admin')
+        ->when($search, function ($query, $search) {
+            return $query->where('firstName', 'like', "%{$search}%")
+                         ->orWhere('lastName', 'like', "%{$search}%")
+                         ->orWhere('role', 'like', "%{$search}%");
+        })
+        ->get();
+
+    foreach ($users as $user) {
+        if ($user->work_status === 'free') {
+            $latestBreakRequest = $user->breakRequests()->latest()->first();
+            
+            if ($latestBreakRequest && $latestBreakRequest->end_date < now()) {
+                $user->work_status = 'active';
+                $user->save();
             }
         }
-    
-        return view('usersprofiles.index', ['manager_names' => $manager_names, 'users' => $users]);
     }
-    
+
+    $manager_names = manager_department_name::all();
+
+    return view('usersprofiles.index', compact('users', 'manager_names'));
+}
+
  
 
     public function show($userId){

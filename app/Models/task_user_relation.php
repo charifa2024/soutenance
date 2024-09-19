@@ -12,5 +12,10 @@ class task_user_relation extends Model
 {
     return $this->belongsTo(User::class);
 }
+public function task()
+{
+    return $this->belongsTo(assigned_task::class, 'task_id');
+}
+
 
 }

@@ -8,13 +8,21 @@ use App\Models\contact_message;
 
 class contactmssgController extends Controller
 {
-    //
-    public function index(){
-         $contact_messages_fromDB = contact_message::all();
-        // @dd($contact_messages_fromDB);
-
-        return view('contactmssg.index' , ['contact_messages_fromDB' => $contact_messages_fromDB]);
+    public function index(Request $request)
+    {
+        $query = Contact_message::query();
+    
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $query->where('email', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('subject', 'LIKE', "%{$searchTerm}%");
+        }
+    
+        $contact_messages_fromDB = $query->orderBy('created_at', 'desc')->get();
+    
+        return view('contactmssg.index', compact('contact_messages_fromDB'));
     }
+    
 
 
     public function show(contact_message $contactmssgId){

@@ -8,12 +8,11 @@
 <div class="tasks-table">
     <div class="tasks-table-container">
         <div class="tasks-table-header">
-            <form action="#" method="get" class="search-form">
-            <h1>Tâches Assignées</h1>
-                <input type="text" name="search" placeholder="Rechercher..." class="search-input">
-                <button type="submit" class="search-btn">Rechercher</button>
-            </form>
-        </div>
+        <form action="{{ route('taskmanguser.index') }}" method="get" class="search-form">
+    <input type="text" name="search" placeholder="Rechercher..." class="search-input" value="{{ $search }}">
+    <button type="submit" class="search-btn">Rechercher</button>
+</form>
+
         <div class="tasks-table-body">
             <table>
             <thead>
