@@ -265,3 +265,22 @@ a{
     color: #fff;
 }
 
+.action-btn {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #0053ab;
+    color: #fff;
+    border: none;
+    font-weight: lighter;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.action-btn:hover {
+    background-color: #00346b;
+}
