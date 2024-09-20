@@ -69,7 +69,7 @@
     <h2 class="contact-title">Contact Business</h2>
     <p class="contact-info">
         <strong>Email :</strong> contact.promanag@gmail.com  
-        <strong>Téléphone :</strong> +212 6 00 00 00 00
+        <strong>Téléphone :</strong> +21 26 56 26 63 79
     </p>
 </div>
 <div class="copyrights">
