@@ -9,6 +9,7 @@
     <div class="tasks-table-container">
         <div class="tasks-table-header">
         <form action="{{ route('taskmanguser.index') }}" method="get" class="search-form">
+        <h1>Tâches Assignées au group</h1>
     <input type="text" name="search" placeholder="Rechercher..." class="search-input" value="{{ $search }}">
     <button type="submit" class="search-btn">Rechercher</button>
 </form>

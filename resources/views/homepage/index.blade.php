@@ -39,7 +39,6 @@
     <ul>
         <li><h3>Gestion des performances :</h3> Suivez et évaluez les performances individuelles et d'équipe avec facilité. Les responsables peuvent fournir des retours constructifs et les employés peuvent consulter leurs progrès et les domaines à améliorer.</li>
         <li><h3>Gestion des tâches :</h3>Créez, assignez et gérez les tâches sans effort. Que vous gériez des tâches personnelles ou des projets d'équipe, notre système garantit que tout le monde reste sur la bonne voie.</li>
-        <li><h3>Communication sécurisée :</h3> Notre fonction de chat intégrée assure une communication sécurisée et efficace entre les membres de l'équipe, favorisant la collaboration et la résolution rapide des problèmes.</li>
         <li><h3>Gestion des pauses :</h3> Demandez et gérez les temps de pause de manière efficace, en veillant à respecter les politiques de l'organisation et en améliorant le bien-être des employés.</li>
         <li><h3>Contrôle administratif :</h3> Les administrateurs ont un contrôle total sur la gestion des utilisateurs, y compris l'approbation des nouvelles inscriptions, la réponse aux messages de contact et la supervision des demandes de pause.</li>
     </ul>

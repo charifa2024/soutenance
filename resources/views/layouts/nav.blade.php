@@ -7,7 +7,6 @@
         <a href="{{route('dashboard.index')}}">Gestion des Performances</a>
         <a href="{{route('taskmanguser.index')}}">Gestion des Tâches</a>
         <a href="{{route('breakrequest.index')}}">Demande de Pause</a>
-        <a href="#">Telegram</a>
         <a href="{{route('profilepage.index')}}">Profil</a>
         <form action="{{route('loginpage.logout')}}" method="get">
                 <input type="submit" value="Déconnexion" class="btnLogout">
