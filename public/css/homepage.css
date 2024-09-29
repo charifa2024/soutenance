@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5644bd, #1ba13e);
+}
+.header{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    z-index: 99;
+    
+}
+.logo{
+    font-size:1.9em;
+    color:white;
+    user-select:none;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all  0.3s ease;
+}
+.logo:hover{
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+.navigation .btn {
+    padding: 15px 30px;
+    background:transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color:white;
+    transition: .5s;
+    transition: all 0.3s ease;
+}
+.navigation .btn:hover{
+    background: rgb(255, 255, 255);
+    color: #162938 ;
+    transform: scale(1.05);
+
+}
+.navigation a{
+    text-decoration: none;
+    font-size: 1.4em;
+}
+
+
+.container {
+    position: relative;
+    background-color: #edebeb;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 35px;
+    margin-top: 40px;
+    max-height: fit-content;
+    transition: all 0.3s ease;
+}
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.container h1 {
+    font-size: 4rem;
+    color: #06253c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container p {
+    font-size: 2rem;
+    color: #d17f7f;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.233);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    margin-top: 70px;
+    max-width: 80%;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.card h1 {
+    color: #041827;
+    border-bottom: 2px dashed #42551e;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+.card p, .card ul {
+    color: #000000;
+    line-height: 1.6;
+}
+
+.card ul {
+    padding-left: 40px;
+    list-style-type:square;
+}
+
+.card h3 {
+    color: #000000;
+    margin-top: 15px;
+}
+
+.img-office {
+    width: 70%;
+    max-width: 700px;
+    margin: 2rem auto;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.img-office img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-office img:hover {
+    transform: scale(1.05);
+}
+
+
+.contact-form {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.336);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+.contact-title {
+    font-size: 1.7em;
+    color: #162938;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    color: #162938;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: transparent;
+    border: 1px solid #162938;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: #2569b5;
+    box-shadow: 0 0 5px rgba(74,144,226,0.5);
+}
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+.form-submit {
+    display: block;
+    width: 20%;
+    margin: 0px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #162938;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+    background-color: #0f1c26;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.busseniss-contact{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #162938;
+}
+
+.copyrights {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.copyrights p {
+    margin: 0;
+    font-size: 20px;
+    color: #333333;
+}
