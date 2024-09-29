@@ -44,7 +44,7 @@ class RequestAccepted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.RequestAccepted',
+            view: 'mails.requestAccepted',
         );
     }
 

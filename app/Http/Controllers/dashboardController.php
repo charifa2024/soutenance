@@ -18,13 +18,14 @@ class dashboardController extends Controller
     {
         $user = Auth::user();
         $search = $request->input('search');
-    
         $alltasks = Personal_task::where('user_id', $user->id)
-            ->when($search, function ($query) use ($search) {
-                return $query->where('title', 'like', "%{$search}%")
-                             ->orWhere('description', 'like', "%{$search}%");
-            })
-            ->get();
+        ->when($search, function ($query) use ($search) {
+            return $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        })
+        ->get();
     
         $notdone = Personal_task::where('user_id', $user->id)
             ->where('status', 'en cours')

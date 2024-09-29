@@ -23,13 +23,16 @@ class chef_dashboardController extends Controller
 
     public function index(Request $request){
         $search = $request->input('search');
+        $user = Auth::user();
     
-        $tasks = Personal_task::where('user_id', Auth::id())
-                     ->when($search, function ($query) use ($search) {
-                         return $query->where('title', 'like', "%{$search}%")
-                                      ->orWhere('description', 'like', "%{$search}%");
-                     })
-                     ->get();
+        $tasks =Personal_task::where('user_id', $user->id)
+        ->when($search, function ($query) use ($search) {
+            return $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        })
+        ->get();
         $notdone = Personal_task::all()->where('user_id', Auth::user()->id)->where('status', 'en cours');
         $nbr_notdone = count($notdone);
         $assigned_tasks = assigned_task::all()->where('created_by', Auth::user()->id);
