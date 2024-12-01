@@ -82,6 +82,9 @@
                 <label for="terms">J'accepte les termes et conditions</label>
             </div>
             <input type="submit" class="btn" value="S'inscrire" ></input>
+            <div class="login-register">
+                    <p>Vous avez un compte déja ? <a href="{{route('loginpage.login')}}" class="register-link">Connectez ici</a></p>
+                </div>
         </form>
     </div>
 </div>

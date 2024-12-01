@@ -52,6 +52,11 @@ class taskmangchefController extends Controller
         return view('taskmangchef.index', ['tasks' => $alltasks]);
     }
     
+    public function show($id){
+        $singletask=assigned_task::find($id);
+        $assigned_to = task_user_relation::where('task_id', $id)->get();
+        return view('taskmangchef.show',['task' => $singletask,'assigned_to' => $assigned_to]);
+    }
 
    public function create(){
     $loggedInUser = Auth::user();

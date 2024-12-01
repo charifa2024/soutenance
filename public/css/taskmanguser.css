@@ -29,17 +29,6 @@ th {
     margin-left: 20px;
 }
 
-.state{
-    width: 100%;
-    padding: 10px;
-    background-color: darkgreen;
-    color: #fff;
-    border: none;
-    font-weight: lighter;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 .details_container{
     position: relative;
@@ -94,7 +83,7 @@ th {
     text-align: center;
 }
 .close-btn a{
-    background-color: #0053ab;
+    background-color: #215b99;
     color: white;
     font-size: larger;
     padding:  10px 20px;
@@ -143,9 +132,9 @@ th {
     gap: 10px;
 }
 .view-btn{
-    width: 40%;
-    padding: 5px;
-    background-color: #0053ab;
+    width: 50%;
+    padding: 10px;
+    background-color: #3f72a8;
     color: #1f1e1e;
     border: none;
     font-weight: lighter;
@@ -157,7 +146,7 @@ th {
     width: 100%;
     padding: 10px;
     margin: 5px;
-    background-color: darkgreen;
+    background-color: rgb(48, 136, 48);
     color: #fff;
     border: none;
     font-weight: lighter;

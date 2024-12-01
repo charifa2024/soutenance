@@ -34,14 +34,14 @@
       <td class="action-buttons">
         <div><form action="{{route('signuprequest.accept',$signuprequest->id)}}" method="post">
             @csrf
-            <input type="submit" value="Accepter" class="action-btn" style=" background-color : green;">
+            <input type="submit" value="Accepter" class="action-btn" style=" background-color : #308830;">
         </form>
         </div>
         <div>
             <form action="{{route('signuprequest.refuse',$signuprequest->id)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="Refuser" class="action-btn" style=" background-color : red;">
+                <input type="submit" value="Refuser" class="action-btn" style=" background-color : #cc4141;">
             </form>
         </div>
     

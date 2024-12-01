@@ -32,11 +32,11 @@
       <td class="action-buttons">
         <form action="{{route('breakrequestadmin.accept',$breakrequest['id'])}}" method="post">
             @csrf
-        <div><input type="submit" value="Accepter" class="action-btn" style=" background-color : green;"></div>
+        <div><input type="submit" value="Accepter" class="action-btn" style=" background-color : #308830;"></div>
         </form>
         <form action="{{route('breakrequestadmin.refuse',$breakrequest['id'])}}" method="post">
             @csrf
-        <div><input type="submit" value="Refuser" class="action-btn" style=" background-color : red;"></div>
+        <div><input type="submit" value="Refuser" class="action-btn" style=" background-color : #cc4141;"></div>
         </form>
     
     </td>

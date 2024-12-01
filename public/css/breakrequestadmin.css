@@ -34,7 +34,7 @@ th {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #0053ab;
+    background-color: #3f72a8;
     color: #fff;
     border: none;
     font-weight: lighter;
@@ -102,7 +102,7 @@ th {
     text-align: center;
 }
 .close-btn a{
-    background-color: #0053ab;
+    background-color: #215b99;
     color: white;
     font-size: larger;
     padding:  10px 20px;
