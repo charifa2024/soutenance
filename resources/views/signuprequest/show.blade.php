@@ -13,10 +13,8 @@
     <p><label>Date :</label>{{$signuprequest->created_at}}</p>
     <p><label>Nom Complet :</label>{{$signuprequest->Firstname}} {{$signuprequest->Lastname}}</p>
     <p><label>Email :</label>{{$signuprequest->email}}</p>
-    <p><label>Numéro de Téléphone :</label>{{$signuprequest->phoneNumber}}</p>
     <p><label>Rôle :</label>{{$signuprequest->role}}</p>
-    <p><label>Departement :</label>{{$signuprequest->department}}</p>
-    <p><label>Poste :</label>{{$signuprequest->post}}</p>
+    <p><label>Département :</label>{{$department_name->department_name}}</p>
     </div>
     
     <div class="button-container">

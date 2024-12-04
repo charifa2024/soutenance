@@ -49,22 +49,13 @@
                 <label>Confirmez le mot de passe</label>
                 </div>
             </div>
-            <div class="input-box">
-                <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
-                <input type="tel" name="phoneNumber" required>
-                <label>Téléphone</label>
-            </div>
             <div class="input-group">
-                <div class="input-box">
-                <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
-                <input type="text" name="post" required>
-                <label>Poste</label>
-                </div>
+
                 <div class="department">
                     <label for="department">Département :</label>
-                    <select name="department" id="department">
+                    <select name="department" id="department" value="department">
                         @foreach ($manager_names as $manager_name)
-                        <option value="{{$manager_name->department_name}}">{{$manager_name->department_name}}</option>
+                        <option value="{{$manager_name->id}}">{{$manager_name->department_name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -75,6 +66,7 @@
                 <select name="role" id="role" >
                     <option value="employee">Employé</option>
                     <option value="manager">Manager</option>
+                    <option value="admin">Admin</option>
                 </select>
             </div>
             <div class="check">

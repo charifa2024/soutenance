@@ -8,14 +8,14 @@ use App\Models\Personal_task;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\assigned_task;
+use App\Models\department;
 class chef_dashboardController extends Controller
 {
     //
     public function getEmployeeCount()
 {
     $manager = Auth::user();
-    $employeeCount = User::where('department', $manager->department)
-                         ->where('role', 'employee')
+    $employeeCount = department::where('id', $manager->department_id)
                          ->count();
 
     return $employeeCount;
@@ -37,7 +37,7 @@ class chef_dashboardController extends Controller
         $nbr_notdone = count($notdone);
         $assigned_tasks = assigned_task::all()->where('created_by', Auth::user()->id);
         $nbr_assigned_tasks = count($assigned_tasks);
-        $employeeCount = $this->getEmployeeCount();
+        $employeeCount = User::where('department_id', $user->department_id)->where('role','employee')->count();
         return view('chef_dashboard.index', compact('tasks', 'nbr_notdone', 'nbr_assigned_tasks', 'employeeCount'));
     }
     public function show($id){
@@ -79,7 +79,7 @@ class chef_dashboardController extends Controller
     public function destroy($id){
         $task = Personal_task::find($id);
         $task->delete();
-        return redirect()->route('chef_dashboard.index')->with('success', '') ;
+        return redirect()->route('chef_dashboard.index');
     }
     public function state($id){
         $task = Personal_task::find($id);

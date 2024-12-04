@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\break_request;
+use App\Models\department;
 
 class breakrequestadminController extends Controller
 {
@@ -23,7 +24,7 @@ class breakrequestadminController extends Controller
                 ->orWhere('created_at', 'like', "%{$search}%")
                 ->orWhere('reason', 'like', "%{$search}%");
             })
-            ->get();
+            ->orderBy('created_at', 'desc')->get();
     
         return view('breakrequestadmin.index', ['breakrequests' => $allbreakrequest]);
     }
@@ -31,8 +32,10 @@ class breakrequestadminController extends Controller
 
     public function show($id){
         $breakrequest = break_request::with('User')->find($id);
+        $departments=department::all();
+        $department=$departments->find($breakrequest->user->department_id)->department_name;
        // @dd($breakrequest);
-        return view('breakrequestadmin.show', ['breakrequest'=>$breakrequest]);
+        return view('breakrequestadmin.show', ['breakrequest'=>$breakrequest,'department'=>$department]);
         
     }
 

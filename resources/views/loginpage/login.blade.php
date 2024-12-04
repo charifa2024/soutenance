@@ -10,7 +10,7 @@
 <div class="wrapper">
         <div class="form-box login">
             <h2>Connexion</h2>
-            <form method="post" action="{{ route('loginpage.auth') }}">
+            <form method="post" action="{{ route('loginpage.auth') }}"><!--//{{ route('loginpage.auth') }}-->
             @csrf
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>

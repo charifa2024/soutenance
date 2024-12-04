@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('break_requests', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->unsignedBigInteger('user_id');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('status')->default('pending');
             $table->text('reason');
             $table->timestamps();
-
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('users')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('Firstname');
             $table->string('Lastname');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password')->hash();
-            $table->string('phoneNumber');
-            $table->string('post');
-            $table->string('department');
-            $table->string('role')->enum(['manager', 'employee']);
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('department_id')->references('id')->on('departments')->nullable();
+            $table->string('role')->enum(['Manager', 'Employee','Admin']);
             $table->string('status')->default('pending');
+            $table->foreign('admin_id')->references('id')->on('users')->nullable();
+
             $table->timestamps();
         });
     }

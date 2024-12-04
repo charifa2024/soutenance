@@ -5,20 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;    
-
+use Illuminate\Support\Facades\Hash;  
+use App\Models\department;
 class chef_profileController extends Controller
 {
     //
     public function index(){
-        return view('chef_profile.index');
+        $user=Auth::user();
+        $departments=department::all();
+        $department=$departments->find($user->department_id)->department_name;
+        //dd($department);
+        return view('chef_profile.index',compact('department'));
     }
     public function edit(){
         return view('chef_profile.edit');
     }
     public function update(){
         $email=request()->email;
-        $phone_number=request()->phone_number;
         $password=request()->password;
         $confirm_pwd=request()->confirm_pwd;
         $user = Auth::user();
@@ -31,10 +34,6 @@ class chef_profileController extends Controller
         }
         if($email!==null){
             $user->email=$email;
-            $user->save();
-        }
-        if($phone_number!==null){
-            $user->phoneNumber=$phone_number;
             $user->save();
         }
        return to_route('chef_profile.index');

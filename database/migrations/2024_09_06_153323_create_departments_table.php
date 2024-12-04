@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('manager_department_names', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id()->AutoIncrement();
             $table->string('department_name');
-            $table->string('manager_fullName');
             $table->timestamps();
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->unsignedBigInteger('manager_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('users')->nullable();
+            $table->foreign('manager_id')->references('id')->on('users')->nullable();
+
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manager_department_names');
+        Schema::dropIfExists('departments');
     }
 };

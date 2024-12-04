@@ -12,8 +12,7 @@
     <div class="card-details">
     <p><label>Date de la demande :</label>{{$breakrequest['created_at']}}</p>
     <p><label>Nom complet de l'Employé :</label>{{$breakrequest->user['firstName']}} {{$breakrequest->user['lastName']}}</p>
-    <p><label>Poste :</label>{{$breakrequest->user['post']}}</p>
-    <p><label>Département :</label>{{$breakrequest->user['department']}}</p>
+    <p><label>Département :</label>{{$department}}</p>
     <p><label>Raison du Congé :</label>{{$breakrequest['reason']}}</p>
     <p><label>Date de Début :</label>{{$breakrequest['start_date']}}</p>
     <p><label>Date de Fin :</label>{{$breakrequest['end_date']}}</p>

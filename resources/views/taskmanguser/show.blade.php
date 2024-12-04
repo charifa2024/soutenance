@@ -15,7 +15,6 @@
     <p><label>Titre :</label> {{$task['title']}}</p>
     <p><label>Status :</label> {{$task['status']}}</p>
     <p><label>Description :</label> {{$task['description']}}</p>
-    <p><label>Responsable :</label> {{$createdBy->firstName}} {{$createdBy->lastName}}</p>
     <p><label>Affecté à :</label>
     <ul>
         @foreach($task['for'] as $user)

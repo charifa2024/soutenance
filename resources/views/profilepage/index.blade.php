@@ -17,18 +17,12 @@
             <label for="email">Email :</label>
             <span id="email">{{ Auth::user()->email }}</span>
             </div>
-            <div class="profile-info-item">
-                <label for="phone">Téléphone :</label>
-                <span id="phone">{{ Auth::user()->phoneNumber }}</span>
-            </div>
+
             <div class="profile-info-item">
                 <label for="department">Département :</label>
-                <span id="department">{{ Auth::user()->department }}</span>
+                <span id="department">{{ $department }}</span>
             </div>
-            <div class="profile-info-item">
-                <label for="post">Poste :</label>
-                <span id="post">{{ Auth::user()->post }}</span>
-            </div>
+
             <div class="profile-info-item">
                 <label for="role">Rôle :</label>
                 <span id="role">{{ Auth::user()->role }}</span>

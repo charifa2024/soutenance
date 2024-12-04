@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\signup_request;
-use App\Models\manager_department_name;
+use App\Models\department;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
@@ -22,8 +22,8 @@ class loginpageController extends Controller
         return view('loginpage.login');
     }
     public function signup(){
-        $manager_names= manager_department_name::all();
-        return view('loginpage.signup' , ['manager_names'=>$manager_names]);
+        $departments= department::all();
+        return view('loginpage.signup' , ['manager_names'=>$departments]);
     }
     
     public function show(){
@@ -41,23 +41,21 @@ class loginpageController extends Controller
         else{
             $password=Hash::make($request->password);
         };
+        //dd($request);
+        
         $firstname=request()->firstname;
         $lastname=request()->lastname;
         $email=request()->user_email;
-        $phoneNumber=request()->phoneNumber;
-        $post=request()->post;
-        $department=request()->department;
+        $department_id=request()->department;
         $role=request()->role;
         $terms=request()->terms;  
-        //@dd($firstname,$lastname,$email,$password,$phoneNumber,$post,$department,$role);
+        //@dd($firstname,$lastname,$email,$password,$department_id,$role);
         $signup_request = new signup_request;
         $signup_request->firstname = $firstname;
         $signup_request->lastname = $lastname;
         $signup_request->email = $email;
         $signup_request->password =$password;
-        $signup_request->phoneNumber = $phoneNumber;
-        $signup_request->post = $post;
-        $signup_request->department = $department;
+        $signup_request->department_id = $department_id;
         $signup_request->role = $role;
         //dd($signup_request);
         $signup_request->save();

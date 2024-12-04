@@ -17,7 +17,7 @@ return new class extends Migration
             $table->datetime('due_date');
             $table->string('status')->default('on');
             $table->text('description');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();

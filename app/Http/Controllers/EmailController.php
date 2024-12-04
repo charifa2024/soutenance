@@ -22,7 +22,7 @@ class EmailController extends Controller
         $response=Mail::to($toEmail)->send(new RequestAccepted($message,$subject));
 
         //@dd($response);
-        $signuprequestId->delete();
+        //$signuprequestId->delete();
         return redirect()->route('signuprequest.index');
     }
     public function Send_RequestRefused_Email(signup_request $signuprequestId){
@@ -33,7 +33,7 @@ class EmailController extends Controller
 
         $response=Mail::to($toEmail)->send(new RequestRefused($message,$subject));
         //@dd($response);
-        $signuprequestId->delete();
+        //$signuprequestId->delete();
         return redirect()->route('signuprequest.index');
     }
 
@@ -43,7 +43,7 @@ class EmailController extends Controller
         $message=$contactmssgId->response;
         $subject="Réponse à votre message du suject : ".$contactmssgId->subject;
         $response=Mail::to($toEmail)->send(new contactmssgResponse($message,$subject));
-        $contactmssgId->delete();
+        //$contactmssgId->delete();
         return redirect()->route('contactmssg.index');
     }
        

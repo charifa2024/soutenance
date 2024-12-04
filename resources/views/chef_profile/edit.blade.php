@@ -9,14 +9,6 @@
     <form method="POST" action="{{ route('chef_profile.update') }}">
         @csrf
         @method('PUT')
-        <label for="phone_number">Numéro du Téléphone :</label>
-        <input type="number" id="phone_number" name="phone_number" placeholder="numéro de téléphone" required >
-
-        <input type="submit" value="Modifier" id="number_btn">
-    </form>
-    <form method="POST" action="{{ route('chef_profile.update') }}">
-        @csrf
-        @method('PUT')
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" placeholder="email" required>
 

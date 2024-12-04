@@ -6,20 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\department;
 
 class profilepageController extends Controller
 {
     //
     public function index(){
-        return view('profilepage.index');
+        $user=Auth::user();
+        $departments=department::all();
+        $department=$departments->find($user->department_id)->department_name;
+        return view('profilepage.index',compact('department'));
     }
     public function edit(){
         return view('profilepage.edit');
     }
     public function update(){
         $email=request()->email;
-        $phone_number=request()->phone_number;
         $password=request()->password;
         $confirm_pwd=request()->confirm_pwd;
         $user = Auth::user();
@@ -34,10 +36,7 @@ class profilepageController extends Controller
             $user->email=$email;
             $user->save();
         }
-        if($phone_number!==null){
-            $user->phoneNumber=$phone_number;
-            $user->save();
-        }
+
        return to_route('profilepage.index');
     }
 

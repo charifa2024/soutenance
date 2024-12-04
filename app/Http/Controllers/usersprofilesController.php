@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\manager_department_name;
+use App\Models\department;
 use App\Models\User;
 use App\Models\break_request;
 use Illuminate\Support\Facades\DB;
@@ -31,16 +31,19 @@ class usersprofilesController extends Controller
 }
 public function index(Request $request)
 {
+    //$departments = department::all();
+    //dd($departments);
     $search = $request->input('search');
     
+    // Start with the query excluding "admin" users
     $users = User::where('role', '!=', 'admin')
         ->when($search, function ($query, $search) {
             return $query->where('firstName', 'like', "%{$search}%")
-                         ->orWhere('lastName', 'like', "%{$search}%")
-                         ->orWhere('role', 'like', "%{$search}%");
+                         ->orWhere('lastName', 'like', "%{$search}%");
         })
         ->get();
 
+    // Process the users to check their work status
     foreach ($users as $user) {
         if ($user->work_status === 'free') {
             $latestBreakRequest = $user->breakRequests()->latest()->first();
@@ -51,59 +54,50 @@ public function index(Request $request)
             }
         }
     }
+    $departments = department::all();
+    $department_names=$departments->pluck('department_name');
+    //dd($department_names);
 
-    $manager_names = manager_department_name::all();
 
-    return view('usersprofiles.index', compact('users', 'manager_names'));
+    return view('usersprofiles.index', compact('users','department_names'));
 }
+
+
 
  
 
-    public function show($userId){
-       $users=user::all();
-       //dd($users,$userId);
-       
-       $user = $users->find($userId);
-       //dd($user);
-        return view('usersprofiles.show ', ['user'=>$user]);
-    }
+public function show($userId) {
+    $users=User::all();
+    $user = User::findOrFail($userId); 
+    $departments=department::all();
+    
+    $department = $departments->find($user->department_id)->department_name;
+    $manager_id=$departments->find($user->department_id)->manager_id;
+    //($manager_id);
+    $manager_firstname = $users->find($manager_id)->firstName;
+    $manager_lastname = $users->find($manager_id)->lastName;
+
+    // Pass all variables to the view as a single array
+    return view('usersprofiles.show', [
+        'user' => $user,
+        'department' => $department,
+        'manager_firstname' => $manager_firstname,
+        'manager_lastname' => $manager_lastname,
+    ]);
+}
 
     public function create(){
         return view('usersprofiles.create');
     }
     public function store(Request $request){
-        $manager_name = $request->input('manager_name');
-        $department_name = $request->input('department_name');
-        $manager_department_name = new manager_department_name();
-        $manager_department_name->manager_fullName = $manager_name;
-        $manager_department_name->department_name = $department_name;
-        $manager_department_name->save();
+        //dd($request);
+        $department_name = $request->input('titre');
+       // dd($department_name);
+        $department = new department();
+        $department->department_name = $department_name;
+        $department->admin_id = auth()->user()->id;
+        $department->save();
         return redirect()->route('usersprofiles.index');
-    }
-    public function edit($id){
-        $manager_name = manager_department_name::find($id);
-        return view('usersprofiles.edit', ['manager_name' => $manager_name]);
-    }
-  
-    public function update(Request $request, $id)
-    {
-        $manager_name = $request->input('manager_name');
-        $department_name = $request->input('department_name');
-    
-        $manager_department_name = manager_department_name::find($id);
-        $old_manager_name = $manager_department_name->manager_fullName;
-        $old_department_name = $manager_department_name->department_name;
-    
-        $manager_department_name->manager_fullName = $manager_name;
-        $manager_department_name->department_name = $department_name;
-        $manager_department_name->save();
-    
-        // Update all employees in the department with the new manager name
-        User::where('department', $old_department_name)
-            ->where('manager_name', $old_manager_name)
-            ->update(['manager_name' => $manager_name, 'department' => $department_name]);
-    
-        return redirect()->route('usersprofiles.index');
-    }    
+    }  
     
 }

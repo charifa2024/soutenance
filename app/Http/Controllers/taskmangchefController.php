@@ -61,7 +61,7 @@ class taskmangchefController extends Controller
    public function create(){
     $loggedInUser = Auth::user();
     //dd($loggedInUser);
-    $employees = User::all()->where('department', $loggedInUser->department)->where('role', 'employee');
+    $employees = User::all()->where('department_id', $loggedInUser->department_id)->where('role', 'employee');
     //dd($allemployees);
     return view('taskmangchef.create', ['employees' => $employees]);
    }

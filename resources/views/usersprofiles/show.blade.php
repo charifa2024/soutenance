@@ -13,12 +13,10 @@
     <p><label>Date de création :</label>{{$user['created_at']}}</p>
     <p><label>Nom complet :</label>{{$user['firstName']}} {{$user['lastName']}}</p>
     <p><label>Email :</label>{{$user['email']}}</p>
-    <p><label>Numéro du Téléphone:</label>{{$user['phoneNumber']}}</p>
     <p><label>Rôle :</label>{{$user['role']}}</p>
-    <p><label>Departement :</label>{{$user['department']}}</p>
-    <p><label>Poste :</label>{{$user['post']}}</p>
+    <p><label>Departement :</label>{{$department}}</p>
     <p><label>status :</label>{{$user['work_status']}}</p>
-    <p><label>Nom du Manager :</label>{{$user['manager_name']}}</p>
+    <p><label>Nom du Manager :</label>{{$manager_firstname }}  {{$manager_lastname }}</p>
     </div>
     
     <div class="button-container">

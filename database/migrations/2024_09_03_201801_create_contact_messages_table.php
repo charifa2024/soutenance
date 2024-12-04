@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('message');
+            $table->string('status')->default('unread');
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('users')->nullable();
+            $table->text('response')->nullable();
             $table->timestamps();//created_at and updated_at columns
         });
     }
