@@ -66,7 +66,7 @@
                 <select name="role" id="role" >
                     <option value="employee">Employé</option>
                     <option value="manager">Manager</option>
-                    <option value="admin">Admin</option>
+                    <!--<option value="admin">Admin</option>-->
                 </select>
             </div>
             <div class="check">

@@ -9,11 +9,11 @@
         <form action="{{route('chef_breakrequest.store')}}" method="POST">
             @csrf
             <div class="form-group">
-            <label for="start_time">Heure de début :</label>
+            <label for="start_time">Date de début :</label>
                 <input type="date" name="start_time" id="start_time" required>
             </div>
             <div class="form-group">
-            <label for="end_time">Heure de fin :</label>
+            <label for="end_time">Date de fin :</label>
                 <input type="date" name="end_time" id="end_time" required>
             </div>
             <div class="form-group">
@@ -23,7 +23,7 @@
             <div>
                 <input type="submit" value="Envoyer">
             </div>
-            <div class="close-btn"><a href="{{route('breakrequest.index')}}" >Fermer</a></div>
+            <div class="close-btn"><a href="{{route('chef_breakrequest.index')}}" >Fermer</a></div>
         </form>
     </div>
 </body>
